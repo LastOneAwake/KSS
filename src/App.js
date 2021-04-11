@@ -7,7 +7,8 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          env1: {process.env.REACT_APP_TEST_ENV_VAL}
+          env2: {process.env.REACT_APP_TEST_VAR}
         </p>
         <a
           className="App-link"
