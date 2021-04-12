@@ -6,10 +6,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          env1: {process.env.REACT_APP_TEST_ENV_VAL}
-          env2: {process.env.REACT_APP_TEST_VAR}
-        </p>
+        <div>env1: {process.env.REACT_APP_TEST_ENV_VAL}</div>
+        <div>env2: {process.env.REACT_APP_TEST_VAR}</div>
+        <div>env3: {process.env.REACT_APP_NETLIFY_VAL}</div>
         <a
           className="App-link"
           href="https://reactjs.org"
