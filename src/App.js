@@ -1,22 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
-// {
-//   method: "POST",
-//       url: "https://accounts.spotify.com/api/token",
-//     data: {
-//   "grant_type":    "authorization_code",
-//       "code":          code,
-//       "redirect_uri":  myurl,
-//       "client_secret": mysecret,
-//       "client_id":     myid,
-// },
-//   success: function(result) {
-//     // handle result...
-//   },
-
+import logo from './assets/Asset 1.svg';
+import './spaStyle.scss';
 
 async function auth() {
-console.log('running auth');
     let RD_URI = window.location;
     const requestOptions = {
         method: 'POST',
@@ -38,20 +23,24 @@ function App() {
     auth();
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo"/>
-                <div>env1: {process.env.REACT_APP_TEST_ENV_VAL}</div>
-                <div>env2: {process.env.REACT_APP_TEST_VAR}</div>
-                <div>env3: {process.env.REACT_APP_NETLIFY_VAL}</div>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
+            <div id={'floatingContactButton'}>
+                <span/>
+                <span/>
+                <span/>
+            </div>
+            <div id={'splash'} className={'largeSection'}>
+            <img src={logo}/>
+            </div>
+            <div id={'about'} className={'largeSection'}>
+                about
+            </div>
+            <div id={'launchDetails'} className={'largeSection'}>
+                launch
+            </div>
+            <div id={'contact'} className={'largeSection'}>
+                contact
+            </div>
+
         </div>
     );
 }
