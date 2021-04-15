@@ -10,7 +10,7 @@ function App() {
                 <span/>
             </div>
             <div id={'splash'} className={'largeSection'}>
-            <img src={logo}/>
+            <img src={logo} alt={'KSS Logo'}/>
             </div>
             <div id={'about'} className={'largeSection'}>
                 about
