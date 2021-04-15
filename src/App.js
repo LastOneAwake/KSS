@@ -4,7 +4,7 @@ import {useState} from 'react';
 import NavMenu from './components/NavMenu';
 
 function App() {
-    const [currentView, updateCurrentView] = useState('home');
+    // const [currentView, updateCurrentView] = useState('home');
     const [menuOpen, updateMenuOpen] = useState(false);
     return (
         <div className="App">
