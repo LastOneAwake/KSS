@@ -1,0 +1,81 @@
+$green: #999b84;
+$beige: #f4eeed;
+$lightPink: #efd9d1;
+$darkPink: #ddb7ab;
+
+
+.largeSection {
+  height: 100vh;
+  max-width: 100%;
+  width: 100vw;
+}
+
+#floatingContactButton {
+  height: 4em;
+  width: 4em;
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  border-radius: 50%;
+
+
+  background: linear-gradient(-45deg, #ddb7ab, #75b9c9, #efd9d1, #8cba89 );
+  background-size: 500% 500%;
+  animation: gradient 15s ease infinite;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: solid 2px white;
+  box-sizing: border-box;
+
+  span {
+    background-color: white;
+    height: .25em;
+    width: 50%;
+    border-radius: 15px;
+
+    &:nth-child(2) {
+      margin: .5em 0;
+    }
+  }
+}
+
+#splash {
+  background-color: $darkPink;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding-top: 3em;
+
+  img {
+    max-width: 50vw;
+  }
+}
+
+#launchDetails {
+  background-color: $lightPink;
+}
+
+#about {
+  background-color: $green;
+}
+
+#contact {
+  background-color: $beige;
+}
+
+
+@keyframes gradient {
+  0% {
+    background-position: 24% 50%;
+  }
+  50% {
+    background-position: 80% 100%;
+  }
+  100% {
+    background-position: 24% 50%;
+  }
+}
