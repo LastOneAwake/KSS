@@ -9,7 +9,7 @@ export default function JoinMailingListForm() {
             >
                 <label
                     htmlFor={'joinMailingListInput'}
-                >Join the mailing list to stay up to date!</label>
+                >Join our mailing list to stay up to date!</label>
                 <input
                     name={'joinMailingListInput'}
                     type={'text'}
@@ -20,7 +20,7 @@ export default function JoinMailingListForm() {
                     }}
                     onSubmit={e => onSubmit(e)}
                 />
-                <button>Join The Mailing List!</button>
+                <button>Join Our Mailing List!</button>
             </form>
         </div>
     )
