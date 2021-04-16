@@ -4,20 +4,24 @@ export default function JoinMailingListForm() {
     const [emailVal, updateEmailVal] = useState('');
     return (
         <div id={'joinMailingList'}>
-            <div>
-                <form
+            <form
+                onSubmit={e => onSubmit(e)}
+            >
+                <label
+                    htmlFor={'joinMailingListInput'}
+                >Join the mailing list to stay up to date!</label>
+                <input
+                    name={'joinMailingListInput'}
+                    type={'text'}
+                    placeholder={'Email'}
+                    value={emailVal}
+                    onChange={e => {
+                        updateEmailVal(e.target.value);
+                    }}
                     onSubmit={e => onSubmit(e)}
-                >
-                    <input type={'text'}
-                           placeholder={'Email'}
-                           value={emailVal}
-                           onChange={e => {
-                               updateEmailVal(e.target.value);
-                           }}
-                           onSubmit={e => onSubmit(e)}
-                    />
-                </form>
-            </div>
+                />
+                <button>Join The Mailing List!</button>
+            </form>
         </div>
     )
 }
