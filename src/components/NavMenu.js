@@ -7,13 +7,15 @@ export default function NavMenu({dismissNavMenu, currentView, updateCurrentView}
         <div id={'transBG'} onClick={dismissNavMenu}>
             <div id={'navMenu'}>
                 {menuOptions.map(option => {
-                    const classes = 'menuOption' + (currentView === option ? ' currentView' : '');
+                    const closeBtn = option === 'X';
+                    let classes = 'menuOption' + (currentView === option ? ' currentView' : '');
+                    classes += closeBtn ? ' closeButton' : '';
                     return (
                         <div
                             id={'menuOption_' + option}
                             className={classes}
                             onClick={()=>{
-                                if(option === 'X'){
+                                if(closeBtn){
                                     dismissNavMenu();
                                 }else{
                                     updateCurrentView(option);

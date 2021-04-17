@@ -31,12 +31,7 @@ function App() {
             {(currentView === 'Home') &&
             <div id={'splash'} className={'largeSection'}>
                 <img src={logo} alt={'KSS Logo'}/>
-                <div id={'sheShedDefinition'}>
-                    <span id={'term'}>She Shed</span> <span id={'termType'}>(noun)</span>
-                    <span id={'definition'}> - Part of a
-                    home where a woman can relax
-                    and indulge in her interests. </span>
-                </div>
+
                 <JoinMailingListForm/>
             </div>
             }

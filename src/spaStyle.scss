@@ -5,7 +5,10 @@ $lightPink: #efd9d1;
 $darkPink: #c99f92;
 $lightText: #efefef;
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Playfair+Display:ital,wght@1,500&display=swap');
+$cursiveFont: 'Dancing Script';
+$sansFont: 'Open Sans';
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Dancing+Script:wght@700&display=swap');
 .largeSection {
   height: 100vh;
   max-width: 100%;
@@ -52,14 +55,17 @@ $lightText: #efefef;
 }
 
 #splash {
-  background-color: $darkPink;
+  //background-color: $darkPink;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
   flex-direction: column;
-  font-family: "Open Sans", sans-serif;
+  font-family: $sansFont, sans-serif;
   padding: 1.5em 1em;
+  background: linear-gradient(-45deg, rgb(189, 171, 88), #ddb7ab, #9a8b99, #8cba89);
+  background-size: 500% 500%;
+  animation: gradient 15s ease infinite;
 
   img {
     max-width: 50vw;
@@ -69,41 +75,10 @@ $lightText: #efefef;
     }
   }
 
-  #sheShedDefinition {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-    font-size: 1.5em;
-    padding: .25em 1.25em;
-    color: $lightText;
-    text-align: left;
-    border: double 4px white;
-    border-radius: 15px;
-    margin: 1em 0;
-    box-shadow: 2px 4px 6px rgba(0, 0, 0, .25);
-    width: 20em;
-    @media screen and (max-width: 1000px) {
-      width: auto;
-    }
-
-    #term {
-      font-size: 1.25em;
-      font-family: 'Playfair Display', cursive;
-      margin-right: .2em;
-      border-bottom: double 4px $lightText;
-    }
-
-    #termType {
-      font-family: 'Open Sans', sans-serif;
-      font-weight: 400;
-      font-size: 1.1em;
-    }
-
-    #definition {
-      text-shadow: 1px 2px 3px rgba(0, 0, 0, .25);
-    }
-  }
 
   #joinMailingList {
+    margin-top: 2em;
+
     form {
       display: flex;
       flex-direction: column;
@@ -165,12 +140,21 @@ $lightText: #efefef;
 }
 
 #about {
-  background-color: $green;
+  background: linear-gradient(-45deg, #59919e, #8cba89);
+  background-size: 500% 500%;
+  animation: gradient 15s ease infinite;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
   #aboutHeader {
-
+    font-family: $cursiveFont, cursive;
+    font-size: 5em;
+    display: flex;
+    max-height: 5em;
+    color: $lightText;
+    font-weight: 400;
+    padding: .1em 1em;
+    text-shadow: 3px 4px 7px rgba(0, 0, 0, .25);
   }
 
   #aboutContent {
@@ -184,29 +168,69 @@ $lightText: #efefef;
     .aboutSection {
       display: flex;
       flex: 1;
+      flex-direction: column;
 
       &#aboutText {
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         text-align: center;
-        padding: 0 2em;
+        padding: 1em 2em;
         box-sizing: border-box;
         font-size: 1.5em;
         color: $lightText;
-        font-family: 'Open Sans', sans-serif;
+        font-family: $sansFont, sans-serif;
         @media screen and (max-width: 1000px) {
-          flex:.5;
+          flex: .5;
           font-size: 1.25em;
+        }
+
+        #sheShedDefinition {
+          font-family: $sansFont, sans-serif;
+          font-weight: 300;
+          font-size: 1em;
+          padding: .25em 1.25em;
+          color: $lightText;
+          text-align: left;
+          border: double 4px white;
+          border-radius: 15px;
+          margin: 1em 0;
+          box-shadow: 2px 4px 6px rgba(0, 0, 0, .25);
+          width: 20em;
+          @media screen and (max-width: 1000px) {
+            width: auto;
+          }
+
+          #term {
+            font-size: 1.25em;
+            font-family: $cursiveFont, cursive;
+            margin-right: .2em;
+            border-bottom: double 4px $lightText;
+          }
+
+          #termType {
+            font-family: $sansFont, sans-serif;
+            font-weight: 400;
+            font-size: 1.1em;
+          }
+
+          #definition {
+            text-shadow: 1px 2px 3px rgba(0, 0, 0, .25);
+          }
+        }
+
+        #signOff {
+          font-size: 2em;
+          font-family: $cursiveFont, 'cursive';
         }
       }
 
       &#aboutPhoto {
         display: flex;
-        align-items: flex-start;
-        justify-content: center;
+        align-items: center;
+        justify-content: flex-start;
 
         img {
-          max-height: 80%;
+          max-width: 75%;
           @media screen and (max-width: 1000px) {
             max-height: unset;
             max-width: 75%;
@@ -246,21 +270,23 @@ $lightText: #efefef;
   box-shadow: 5px 0 10px rgba(0, 0, 0, .2);
 
   #animatedMenuBG {
-    background: linear-gradient(-45deg, rgba(107, 196, 183, 0.84), #ddb7ab, #9a8b99, #8cba89);
-    background-size: 500% 500%;
-    animation: gradient 15s ease infinite;
+    //background: linear-gradient(-45deg, rgba(107, 196, 183, 0.84), #ddb7ab, #9a8b99, #8cba89);
+    //background-size: 500% 500%;
+    //animation: gradient 15s ease infinite;
+    background: linear-gradient(-45deg, rgba(221, 183, 171, 0.9), rgba(154, 139, 153, 0.9));
     height: 100%;
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
+    border-right: solid 2px rgba(255, 255, 255, 0.62);
   }
 
 
   .menuOption {
     border-bottom: solid 1px white;
-    font-size: 2em;
-    padding: .5em;
+    font-size: 3em;
+    padding: .25em;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -270,14 +296,18 @@ $lightText: #efefef;
     cursor: pointer;
     z-index: 1;
     transition: background-color .2s, color .25s, box-shadow .2s;
+    font-family: $cursiveFont, cursive;
 
-    &.currentView {
-      border: double 2px white;
-      border-radius: 5px;
-
+    &.closeButton {
+      font-family: $sansFont, sans-serif;
+      font-weight: 100;
     }
 
-    &:hover {
+    &.currentView {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    &:hover:not(.currentView) {
       //background-color: rgba(255, 255, 255, .25);
       background-color: rgba(0, 0, 0, .25);
       color: #fad1d1;
