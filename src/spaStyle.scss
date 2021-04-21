@@ -9,6 +9,12 @@ $cursiveFont: 'Dancing Script';
 $sansFont: 'Open Sans';
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Dancing+Script:wght@700&display=swap');
+
+
+
+*{
+  animation: fadeIn .25s ease-in;
+}
 .largeSection {
   height: 100vh;
   max-width: 100%;
@@ -62,13 +68,15 @@ $sansFont: 'Open Sans';
   box-sizing: border-box;
   flex-direction: column;
   font-family: $sansFont, sans-serif;
-  padding: 1.5em 1em;
   //background: linear-gradient(-45deg, rgb(189, 171, 88), #ddb7ab, #9a8b99, #8cba89);
   //background-size: 500% 500%;
   //animation: gradient 15s ease infinite, sectionFadeIn .5s ease-in-out;
+  overflow: hidden;
 
 
   #bgHolder {
+    top:0;
+    left:0;
     background-image: url("./assets/darkenedBG.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -77,7 +85,7 @@ $sansFont: 'Open Sans';
     position: absolute;
     z-index: -1;
     filter: brightness(0.75);
-    @media screen and (max-width: 1000px){
+    @media screen and (max-width: 1000px) {
       background-size: auto 100vh;
       background-position: -20em 0;
       filter: brightness(0.5);
@@ -139,7 +147,6 @@ $sansFont: 'Open Sans';
         font-size: 1.35em;
         border-radius: 15px;
         outline: 0;
-        padding: .25em .5em;
         cursor: pointer;
         background-color: darken($lightGreen, 10%);
         border: solid 2px $lightText;
@@ -147,6 +154,8 @@ $sansFont: 'Open Sans';
         transition: background-color .3s, color .4s, box-shadow .4s;
         color: $lightText;
         user-select: none;
+        width:100%;
+        padding: .35em 1.25em;
 
         &:hover {
           color: white;
