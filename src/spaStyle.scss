@@ -70,13 +70,18 @@ $sansFont: 'Open Sans';
 
   #bgHolder {
     background-image: url("./assets/priscilla-du-preez-dlxLGIy-2VU-unsplash.jpg");
-    background-size: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 100%;
     width: 100%;
     position: absolute;
     z-index: -1;
     filter: brightness(0.75);
-
+    @media screen and (max-width: 1000px){
+      background-size: auto 100vh;
+      background-position: -20em 0;
+      filter: brightness(0.5);
+    }
   }
 
   img {
