@@ -1,4 +1,4 @@
-import logo from './assets/whiteSVG_shadow.svg';
+import logo from './assets/logo.svg';
 import './spaStyle.scss';
 import {useState} from 'react';
 import NavMenu from './components/NavMenu';
