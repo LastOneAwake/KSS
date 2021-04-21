@@ -30,6 +30,7 @@ function App() {
             }
             {(currentView === 'Home') &&
             <div id={'splash'} className={'largeSection'}>
+                <div id={'bgHolder'}/>
                 <img src={logo} alt={'KSS Logo'}/>
 
                 <JoinMailingListForm/>
