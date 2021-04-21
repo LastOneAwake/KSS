@@ -9,16 +9,16 @@ function App() {
     const [menuOpen, updateMenuOpen] = useState(false);
     return (
         <div className="App">
-            <div
-                id={'floatingContactButton'}
-                onClick={e => {
-                    updateMenuOpen(!menuOpen);
-                }}
-            >
-                <span/>
-                <span/>
-                <span/>
-            </div>
+            {/*<div*/}
+            {/*    id={'floatingContactButton'}*/}
+            {/*    onClick={e => {*/}
+            {/*        updateMenuOpen(!menuOpen);*/}
+            {/*    }}*/}
+            {/*>*/}
+            {/*    <span/>*/}
+            {/*    <span/>*/}
+            {/*    <span/>*/}
+            {/*</div>*/}
             {menuOpen &&
             <NavMenu
                 dismissNavMenu={() => {
