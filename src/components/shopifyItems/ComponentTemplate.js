@@ -11,7 +11,7 @@ export default function ComponentTemplate({ id }) {
     }
 
     return (
-        <div id='shopTest'>
+        <div className='productContainer'>
             <div id={'product-component-' + id} className='reactGeneratedOne'></div>
         </div>
     );
