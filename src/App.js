@@ -1,10 +1,12 @@
 import logo from './assets/logo.svg';
 import './spaStyle.scss';
-import {useState} from 'react';
+import './shopfiy1.scss';
+import './shopify2.scss';
+import { useState } from 'react';
 import NavMenu from './components/NavMenu';
 import JoinMailingListForm from './components/JoinMailingListForm';
 import About from './components/About';
-// import ShopifyTest from './components/shopifyTest';
+import ShopifyTest from './components/shopifyTest';
 
 
 function App() {
@@ -12,46 +14,10 @@ function App() {
     const [menuOpen, updateMenuOpen] = useState(false);
     return (
         <div className="App">
-            {/*<div*/}
-            {/*    id={'floatingContactButton'}*/}
-            {/*    onClick={e => {*/}
-            {/*        updateMenuOpen(!menuOpen);*/}
-            {/*    }}*/}
-            {/*>*/}
-            {/*    <span/>*/}
-            {/*    <span/>*/}
-            {/*    <span/>*/}
-            {/*</div>*/}
-            {menuOpen &&
-            <NavMenu
-                dismissNavMenu={() => {
-                    updateMenuOpen(false)
-                }}
-                currentView={currentView}
-                updateCurrentView={updateCurrentView}
-            />
-            }
-            {(currentView === 'Home') &&
             <div id={'splash'} className={'largeSection'}>
-                <div id={'bgHolder'}/>
-                <img src={logo} alt={'KSS Logo'}/>
-
-                <JoinMailingListForm/>
+                <img src={logo} alt={'KSS Logo'} />
             </div>
-            }
-
-            {(currentView === 'About') && <About/>}
-            {(currentView === 'Launch Details') &&
-            <div id={'launchDetails'} className={'largeSection'}>
-                launch
-            </div>
-            }
-            {(currentView === 'Contact') &&
-            <div id={'contact'} className={'largeSection'}>
-                contact
-            </div>
-            }
-            {/* <ShopifyTest/> */}
+            <ShopifyTest />
         </div>
     );
 }
