@@ -73,8 +73,10 @@ body {
   font-family: $sansFont, sans-serif;
   overflow: hidden;
   background-image: url("./assets/splashBGNew.jpg");
-  background-size: 100% auto;
+  background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
 
   // #bgHolder {
   //   top: 0;
@@ -172,72 +174,149 @@ body {
 }
 #shopTest {
   width: 100%;
-  background-image: url("./assets/ev-miIeeCgN1m8-unsplash.jpg");
+  background: rgb(214, 214, 214);
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: bottom;
+  position: relative;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
 
-  .productContainer {
-    width: 30%;
-    height: 54vh;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2em;
-    background-color: rgba(black, 0.5);
-    border-radius: 10px;
-    padding: 2em;
-    vertical-align: top;
-    .shopify-buy-frame {
-      .shopify-buy__product {
-        .shopify-buy__product-img-wrapper {
-          //this is the left panel, the image panel
-          .main-image-wrapper {
-            //image container
-            .shopify-buy__product__variant-img {
-              //actual image
+  .shopSectionHeader {
+    font-family: $cursiveFont;
+    border-bottom: solid 1px black;
+    margin: 1em 0;
+    text-align: left;
+    padding-left: 0.5em;
+    font-size: 4em;
+    color: black;
+  }
+  .shopSection {
+    width: 100%;
 
+    .sectionBody {
+      display: flex;
+      flex-flow: wrap;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      .productContainer {
+        width: 32.5%;
+        @media screen and (max-width: 750px) {
+          width: 44%;
+        }
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        // background-color: rgba(black, 0.5);
+        border-radius: 10px;
+        vertical-align: top;
+        .shopify-buy-frame {
+          display: flex;
+          justify-content: space-evenly;
+          .shopify-buy__product {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 3em;
+            > * {
+              margin: 0 !important;
             }
-          }
-          .shopify-buy__carousel {
-          }
-        }
-        .shopify-buy__product__title {
-          //title
-          color: white;
-        }
-        .shopify-buy__product__price {
-          //price container
-          span {
-            //price
-            color: white;
-          }
-        }
-        .shopify-buy__btn-and-quantity {
-          //cart button & quantity selector
-          .shopify-buy__quantity-container {
-            //quantity container
-            .shopify-buy__quantity {
-              //quantity input
-            }
-            .shopify-buy__btn-wrapper {
-              //cart button container
-              .shopify-buy__btn {
-                //actual cart button
+            .shopify-buy__product-img-wrapper {
+              width: 100%;
+              //this is the left panel, the image panel
+              .main-image-wrapper {
+                //image container
+                .shopify-buy__product__variant-img {
+                  //actual image
+                }
+              }
+              .shopify-buy__carousel {
+                margin: 0;
+                min-height: unset;
+                padding: 2em 1em;
+                display: flex;
+                flex: 1;
+                justify-content: center;
+                align-items: center;
+                flex-flow: wrap;
               }
             }
-          }
-        }
-        .shopify-buy__product-description {
-          //description
-          color: white;
-
-          p {
-            color: white;
-          }
-          ul {
-            color: white;
+            .shopify-buy__product__title {
+              //title
+              color: white;
+              width: auto;
+              float: none;
+              margin: 0;
+              text-align: center;
+              // padding: 1em .50 0.5em;
+              min-height: 2.5em;
+              display:flex;
+              justify-content: center;
+              align-items: center;
+              font-family: $sansFont;
+              font-weight: 400;
+            }
+            .shopify-buy__product__price {
+              //price container
+              span {
+                //price
+                color: white;
+                padding: 0.75em;
+                font-family: $sansFont;
+                font-weight: 800;
+              }
+            }
+            .shopify-buy__product__variant-selectors {
+              padding: .5em 0 1em 0 ;
+            }
+            .shopify-buy__btn-and-quantity {
+              //cart button & quantity selector
+              margin: 0;
+              .shopify-buy__quantity-container {
+                //quantity container
+                .shopify-buy__quantity {
+                  //quantity input
+                }
+                .shopify-buy__btn-wrapper {
+                  //cart button container
+                  .shopify-buy__btn {
+                    //actual cart button
+                  }
+                }
+              }
+            }
+            .shopify-buy__product-description {
+              //description
+              color: white;
+              display: flex;
+              flex-direction: column;
+              flex: 1;
+              /* background: blue; */
+              height: 100%;
+              padding: 1em;
+              text-align: center;
+              font-family: $sansFont;
+              font-weight: 100;
+              p {
+                padding: 1em;
+                color: white;
+                text-align: center;
+              }
+              ul {
+                color: white;
+                text-align: left;
+                font-family: $sansFont;
+                font-weight: 300;
+                li {
+                  font-family: $sansFont;
+                  font-weight: 400;
+                }
+              }
+            }
           }
         }
       }
