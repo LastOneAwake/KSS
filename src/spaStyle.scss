@@ -25,45 +25,48 @@ body {
   max-width: 100%;
   animation: sectionFadeIn 0.3s ease-in-out;
 }
-
-#floatingContactButton {
-  height: 4em;
-  width: 4em;
+#topBanner {
   position: fixed;
-  top: 1em;
-  right: 1em;
-  z-index: 999;
-  border-radius: 50%;
-  cursor: pointer;
-  background: linear-gradient(-45deg, #ddb7ab, #75b9c9, #efd9d1, #8cba89);
-  background-size: 500% 500%;
-  animation: gradient 15s ease infinite;
-
+  top: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 2em;
+  background-color: rgb(96, 177, 96);
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  border: solid 2px white;
-  box-sizing: border-box;
-
-  span {
-    background-color: white;
-    height: 0.25em;
-    width: 50%;
-    border-radius: 15px;
-
-    &:nth-child(2) {
-      margin: 0.5em 0;
+  color: white;
+  z-index: 999;
+}
+#topNav {
+  position: fixed;
+  top: 2em;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 999;
+  width: 50vw;
+  right: 25%;
+  left: 25%;
+  .navMenuOption {
+    padding: 1em;
+    color: white;
+    cursor: pointer;
+    transition: color 0.25s, background-color 0.25s, width 0.25s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    &:hover {
+      background-color: white;
+      color: black;
+      width: 35%;
     }
   }
-
-  @media screen and (max-width: 1100px) {
-    top: unset;
-    bottom: 2em;
-    right: 2em;
-  }
 }
-
 #splash {
   display: flex;
   justify-content: flex-end;
@@ -77,24 +80,6 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-
-  // #bgHolder {
-  //   top: 0;
-  //   left: 0;
-  //   background-image: url("./assets/splashMock.jpg");
-  //   background-size: cover;
-  //   background-repeat: no-repeat;
-  //   height: 100vh;
-  //   width: 100vw;
-  //   position: absolute;
-  //   z-index: -1;
-  //   filter: brightness(0.75);
-  //   @media screen and (max-width: 1000px) {
-  //     background-size: auto 100vh;
-  //     background-position: -20em 0;
-  //     filter: brightness(0.5);
-  //   }
-  // }
 
   img {
     max-width: 40vw;
@@ -172,7 +157,7 @@ body {
     }
   }
 }
-#shopTest {
+#shop {
   width: 100%;
   background: rgb(214, 214, 214);
   background-size: cover;
@@ -185,7 +170,7 @@ body {
   justify-content: space-evenly;
   align-items: flex-start;
 
-  .shopSectionHeader {
+  .ShopSectionHeader {
     font-family: $cursiveFont;
     border-bottom: solid 1px black;
     margin: 1em 0;
@@ -194,7 +179,7 @@ body {
     font-size: 4em;
     color: black;
   }
-  .shopSection {
+  .ShopSection {
     width: 100%;
 
     .sectionBody {
@@ -213,6 +198,12 @@ body {
         // background-color: rgba(black, 0.5);
         border-radius: 10px;
         vertical-align: top;
+        &.single{
+          width:45%
+        }
+        &.twoBy {
+          width: 35%;
+        }
         .shopify-buy-frame {
           display: flex;
           justify-content: space-evenly;
@@ -254,7 +245,7 @@ body {
               text-align: center;
               // padding: 1em .50 0.5em;
               min-height: 2.5em;
-              display:flex;
+              display: flex;
               justify-content: center;
               align-items: center;
               font-family: $sansFont;
@@ -271,7 +262,7 @@ body {
               }
             }
             .shopify-buy__product__variant-selectors {
-              padding: .5em 0 1em 0 ;
+              padding: 0.5em 0 1em 0;
             }
             .shopify-buy__btn-and-quantity {
               //cart button & quantity selector

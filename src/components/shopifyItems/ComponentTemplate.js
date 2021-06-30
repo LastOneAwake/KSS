@@ -3,16 +3,16 @@ import { ShopifyBuy, loadScript, createElement } from './consts'
 
 
 
-export default function ComponentTemplate({ id }) {
+export default function ComponentTemplate({ id, section, className }) {
     if (ShopifyBuy && ShopifyBuy.UI) {
-        createElement(id);
+        createElement(id, section);
     } else {
-        loadScript(createElement(id));
+        loadScript(createElement(id, section));
     }
 
     return (
-        <div className='productContainer'>
-            <div id={'product-component-' + id} className='reactGeneratedOne'></div>
+        <div className={'productContainer ' + className}>
+            <div id={`product-component-${id}-${section}`}></div>
         </div>
     );
 }
