@@ -15,7 +15,7 @@ export default function Mailchimp() {
                 noValidate
             >
                 <div id="mc_embed_signup_scroll">
-                    <label htmlFor="mce-EMAIL">Sign up for launch updates & special offers!</label>
+                    <label htmlFor="mce-EMAIL">Mailing List</label>
                     <input type="email"
                            value={emailValue}
                            onChange={e=>updateEmailValue(e.target.value)}

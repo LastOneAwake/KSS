@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ComponentTemplate from './shopifyItems/ComponentTemplate';
+import './shopSection.scss';
 
 const objBySections = {
   shirts: {
@@ -89,10 +90,16 @@ const objBySections = {
 
 const sections = ["shirts", "kimonos", "dresses", "glasses", "masks", "jewelery", "bags", "beach"];
 
-export default function ShopifyTest({ shopRef }) {
+export default function ShopifyTest({ shopRef, currentView }) {
+  let sectionClasses = 'largeSection';
+  if (currentView !== 'Shop') {
+    sectionClasses += ' inactive';
+  }
   return (
-    <div id='shop'>
-
+    <div
+      id='shop'
+      className={sectionClasses}
+    >
       {sections.map(sectionTypeName => {
         const section = objBySections[sectionTypeName];
         const sectionProds = section.prods;

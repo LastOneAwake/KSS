@@ -1,0 +1,53 @@
+#topNav {
+    position: fixed;
+    top: 2em;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 999;
+    width: 50vw;
+    right: 25%;
+    left: 25%;
+    @media screen and (max-width: 1100px) {
+        width: 70vw;
+        right: 15%;
+        left: 15%;
+    }
+
+    @media screen and (max-width: 850px) {
+        width: 100vw;
+        right: 0;
+        left: 0;
+    }
+    @media screen and (max-width: 750px) {
+        top: unset;
+        bottom: 0;
+    }
+
+    .navMenuOption {
+        padding: 1em;
+        color: white;
+        cursor: pointer;
+        transition: color 0.25s, background-color 0.25s, width 0.25s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25%;
+        &:hover {
+            background-color: white;
+            color: black;
+            width: 35%;
+        }
+        &.selected {
+            color: black;
+            background-color: white;
+            text-decoration: underline;
+            &:hover {
+                color: rgb(26, 26, 26);
+                background-color: rgb(241, 239, 231);
+            }
+        }
+    }
+}

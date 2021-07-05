@@ -1,10 +1,11 @@
 import logo from './assets/logo.svg';
 import './spaStyle.scss';
-import './shopfiy1.scss';
+import './components/navMenu.scss';
 import './shopify2.scss';
 import React, { useState, useRef } from 'react';
-import About from './components/About';
-import ShopifyTest from './components/ShopSection';
+import ShopSection from './components/ShopSection';
+import Contact from './components/Contact';
+import FAQ from './components/FAQ';
 
 const navMenuOptions = [
     'Home',
@@ -22,22 +23,21 @@ function App() {
             <div id='topBanner'>TEST BANNER</div>
             <div id='topNav'>
                 {navMenuOptions.map(opt => {
+                    let selected = false;
+                    if (currentView === opt) {
+                        selected = true;
+                    }
                     return (
                         <div
-                            className='navMenuOption'
+                            className={'navMenuOption' + (selected ? ' selected' : '')}
                             key={`${opt}_navOption`}
                             onClick={() => {
-                                if (opt === 'Shop') {
-                                    setCurrentView('Shop');
-                                    // let shopElem = document.getElementById('shop');
-                                    // shopElem.scrollIntoView({ behavior: "smooth" }, true);
-                                    window.scrollTo(0, 1000);
-
-                                } else if (opt === 'Home') {
-                                    setCurrentView('Home');
-                                } else {
-                                    setCurrentView(opt);
-                                }
+                                setCurrentView(opt);
+                                window.scrollTo({
+                                    top: 0,
+                                    left: 0,
+                                    behavior: 'smooth'
+                                });
                             }}
                         >
                             {opt}
@@ -45,16 +45,38 @@ function App() {
                     );
                 })}
             </div>
-            {(currentView === 'Home' || currentView === 'Shop') &&
-                <React.Fragment>
-                    <div id={'splash'} className={'largeSection'}>
-                        <img src={logo} alt={'KSS Logo'} />
-                    </div>
-                    <ShopifyTest
-                        ref={shopref}
-                    />
-                </React.Fragment>
+
+
+            {currentView === 'Home' &&
+                <div
+                    id={'splash'}
+                    className={'largeSection' + (currentView !== 'Home' ? ' inactive' : '')}
+                >
+                    <img src={logo} alt={'KSS Logo'} />
+                </div>
             }
+
+
+            <ShopSection
+                shopRef={shopref}
+                currentView={currentView}
+            />
+
+            {currentView === 'Contact' &&
+
+                <Contact
+                    currentView={currentView}
+                />
+            }
+            {currentView === 'FAQs' &&
+                <FAQ
+                    currentView={currentView}
+                />
+            }
+
+
+
+
         </div>
     );
 }
