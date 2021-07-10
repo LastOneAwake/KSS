@@ -1,8 +1,49 @@
 @import "./vars.scss";
 
 #FAQs {
+    background-image: url("../assets/FAQbg.jpg");
+    background-size: cover;
+    background-position: bottom;
     &.inactive {
         display: none;
     }
+    display: flex;
+    flex-direction: column;
+    padding: 2em 4em;
+    #FAQheader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: $headerFont;
+        color: $gold;
+
+        font-size: 5em;
+        margin-top: 0.75em;
+        border-bottom: solid 1px black;
+        padding-bottom: 0.25em;
+        margin-bottom: 0.5em;
+    }
+
+    .faqQuestion {
+        font-family: $headerFont;
+        color: white;
+        font-size: 2em;
+    }
+    .faqAnswer {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
+        color: white;
+        text-align: left;
+        font-family: $sansFont;
+        font-size: 1.2em;
+        padding: 1em;
+        .faqSubHeader {
+            font-size: 1.2em;
+            text-decoration: underline;
+            margin-bottom: .5em;
+
+        }
+    }
 }
- 

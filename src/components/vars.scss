@@ -1,13 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Permanent+Marker&family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@700&display=swap");
+
 $lightGreen: #a2d0a2;
 $green: #60825a;
-$beige: #f4eeed;
+// $beige: #f4eeed;
 $lightPink: #efd9d1;
 $darkPink: #c99f92;
 $lightText: #efefef;
 
-$cursiveFont: "Dancing Script";
-$sansFont: "Open Sans";
+$headerFont: "Permanent Marker", cursive;
+$serifFont: "Playfair Display", serif;
+$sansFont: "Open Sans", sans-serif;
+$cursiveFont: "Dancing Script", serif;
 
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Dancing+Script:wght@700&display=swap");
+$smallScreen: 750px;
+$mediumScreen: 1100px;
+$madLargeScreen: 2000px;
 
+//branding
+$mauve: #b76e79;
+$successGreen: #46af6d;
+$brown: #bc8f8f;
+$beige: #e7dbbd;
+$dargkGreen: rgb(81, 101, 78);
+$gold: rgb(161, 124, 76);
 
+$lightGold: rgb(212, 189, 173);

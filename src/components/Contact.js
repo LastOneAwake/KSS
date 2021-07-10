@@ -2,7 +2,10 @@ import React from 'react';
 import MailingList from './JoinMailingListForm';
 import './contact.scss';
 import './mailingList.scss';
-
+import fbIcon from '../assets/smIcons/facebook.png';
+import instaIcon from '../assets/smIcons/instagram.png';
+import tikTokIcon from '../assets/smIcons/tikTok.png';
+import pinterestIcon from '../assets/smIcons/pinterest.png';
 
 export default function About({ currentView }) {
 
@@ -16,45 +19,67 @@ export default function About({ currentView }) {
             id={'contact'}
             className={sectionClasses}
         >
-            <div id={'contactHeader'}>
-                Contact Us!
-            </div>
             <div id={'aboutContent'}>
-
-                <div
-                    id={'contactText'}
-                    className={'contactSection'}
-                >
-                    <p>
-                        Kiki’s She Shed was born out of a desire to
-                        create an environment that reflected my
-                        eclectic style. This space would serve as a
-                        place to relax, reflect and create.
-                        <br />
-                        We hope you find pieces from our collections
-                        that inspire and motivate you!
-                    </p>
-                    <span id={'signOff'}>~ Kiki</span>
+                <div id={'contactHeader'}>
+                    Contact Us
                 </div>
-                <div
-                    id={'contactInfo'}
+                <div id={'contactInfo'}
                     className={'contactSection'}
                 >
+
                     <MailingList />
                     <div
                         id='contactEmail'
                     >
-                        <a id='mailLink' href="mailto:kikissheshed@gmail.com">Click here to email us!</a>
+                        <label>Email Us</label>
+                        <a id='mailLink' href="mailto:support@kikissheshed.com"> Support@KikisSheShed.com</a>
                     </div>
                     <div id='contactSocialMedia'>
                         <div id='contactSMHeader'>
                             Let's Keep In Touch!
                         </div>
                         <div id='contactSMIcons'>
-                            
+                            <img
+                                src={fbIcon}
+                                alt='facebook link'
+                                onClick={() => {
+                                    window.open('https://www.facebook.com/kikissheshed', '_blank')
+                                }}
+                            />
+                            <img
+                                src={instaIcon}
+                                alt='instagram link'
+                                onClick={() => {
+                                    window.open('https://www.instagram.com/kikis.she.shed/', '_blank')
+                                }}
+                            />
+                            <img
+                                src={tikTokIcon}
+                                alt='tiktok link'
+                                onClick={() => {
+                                    window.open('https://www.tiktok.com/@kikis.she.shed', '_blank')
+                                }}
+                            />
+                            <img
+                                src={pinterestIcon}
+                                alt='instagram link'
+                                onClick={() => {
+                                    window.open('https://www.pinterest.com/kikissheshed/_created/', '_blank')
+                                }}
+                            />
                         </div>
                     </div>
+                    {/* <div id='shopPolicies'>
+                        <a className='shopPolicy' href='google.com'>Privacy Policy</a>
+                        <a className='shopPolicy' href='google.com'>Terms of Use</a>
+                    </div> */}
                 </div>
+            </div>
+            <div
+                id={'contactImg'}
+                className={'contactSection'}
+            >
+                <div id="ghostShape" />
             </div>
         </div>
     )

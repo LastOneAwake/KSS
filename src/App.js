@@ -2,8 +2,9 @@ import logo from './assets/logo.svg';
 import './spaStyle.scss';
 import './components/navMenu.scss';
 import './shopify2.scss';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ShopSection from './components/ShopSection';
+import Footer from './components/Footer';
 import Contact from './components/Contact';
 import FAQ from './components/FAQ';
 
@@ -13,14 +14,34 @@ const navMenuOptions = [
     'Contact',
     'FAQs'
 ]
-
+function getBreakpoints() {
+    const vw = window.innerWidth;
+    return {
+        isS: vw < 700,
+        isM: vw < 1100 && vw > 700,
+        isL: vw > 2000,
+        width: vw
+    }
+}
 function App() {
     const [currentView, setCurrentView] = useState('Home');
     const shopref = useRef(null);
+    const [breakpoints, setBreakpoints] = useState(getBreakpoints());
 
-    return (
-        <div className="App">
-            <div id='topBanner'>TEST BANNER</div>
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            setBreakpoints(getBreakpoints());
+        })
+        return () => {
+            window.removeEventListener('resize', () => {
+                setBreakpoints(getBreakpoints());
+            })
+        }
+    }, []);
+
+
+    function renderNav() {
+        return (
             <div id='topNav'>
                 {navMenuOptions.map(opt => {
                     let selected = false;
@@ -31,6 +52,7 @@ function App() {
                         <div
                             className={'navMenuOption' + (selected ? ' selected' : '')}
                             key={`${opt}_navOption`}
+                            tabIndex='0'
                             onClick={() => {
                                 setCurrentView(opt);
                                 window.scrollTo({
@@ -44,8 +66,13 @@ function App() {
                         </div>
                     );
                 })}
-            </div>
+            </div>);
+    }
 
+    return (
+        <div className="App">
+            <div id='topBanner'>Free Shipping on all orders over $40!</div>
+            {!breakpoints.isS && renderNav()}
 
             {currentView === 'Home' &&
                 <div
@@ -73,8 +100,10 @@ function App() {
                     currentView={currentView}
                 />
             }
-
-
+            {breakpoints.isS && renderNav()}
+            <Footer
+                currentView={currentView}
+            />
 
 
         </div>

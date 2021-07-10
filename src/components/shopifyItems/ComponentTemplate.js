@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import { ShopifyBuy, loadScript, createElement } from './consts'
 
 

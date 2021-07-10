@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ComponentTemplate from './shopifyItems/ComponentTemplate';
 import './shopSection.scss';
 

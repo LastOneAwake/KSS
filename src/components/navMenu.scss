@@ -1,3 +1,4 @@
+@import "./vars.scss";
 #topNav {
     position: fixed;
     top: 2em;
@@ -10,7 +11,7 @@
     width: 50vw;
     right: 25%;
     left: 25%;
-    @media screen and (max-width: 1100px) {
+    @media screen and (max-width: $mediumScreen) {
         width: 70vw;
         right: 15%;
         left: 15%;
@@ -21,7 +22,7 @@
         right: 0;
         left: 0;
     }
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: $smallScreen) {
         top: unset;
         bottom: 0;
     }
@@ -35,12 +36,14 @@
         justify-content: center;
         align-items: center;
         width: 25%;
+        box-sizing: border-box;
         &:hover {
             background-color: white;
             color: black;
             width: 35%;
         }
         &.selected {
+            border: solid 1px black;
             color: black;
             background-color: white;
             text-decoration: underline;

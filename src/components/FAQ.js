@@ -2,48 +2,10 @@ import React from 'react';
 import './FAQ.scss';
 
 
-const faqs = [
-    {
-        question: 'question',
-        answer: 'answer'
-    },
-    {
-        question: 'question',
-        answer: 'answer'
-    },
-    {
-        question: 'question',
-        answer: 'answer'
-    },
-    {
-        question: 'question',
-        answer: 'answer'
-    },
-    {
-        question: 'question',
-        answer: 'answer'
-    },
-    {
-        question: 'question',
-        answer: 'answer'
-    },
-    {
-        question: 'question',
-        answer: 'answer'
-    },
-    {
-        question: 'question',
-        answer: 'answer'
-    },
-    {
-        question: 'question',
-        answer: 'answer'
-    },
-]
 
 export default function FAQ({ currentView }) {
 
-    let sectionClasses = '';
+    let sectionClasses = 'largeSection';
     if (currentView !== 'FAQs') {
         sectionClasses += ' inactive';
     }
@@ -52,19 +14,47 @@ export default function FAQ({ currentView }) {
             id='FAQs'
             className={sectionClasses}
         >
-            <ul>
-                {faqs.map((faq, i) => {
-                    return (
-                        <li
-                            className='faqItem'
-                            key={`${i}faq`}
-                        >
-                            <div className='faqQuestion'>{faq.question}</div>
-                            <div className='faqAnswer'>{faq.answer}</div>
-                        </li>
-                    )
-                })}
-            </ul>
+            <div id='FAQheader'>Frequently Asked Questions</div>
+
+            <div className='faqQuestion'>
+                How long does it take to get my order?
+            </div>
+            <div className='faqAnswer'>
+                All non-custom items ship within 3 business days from the time of order, excluding holidays.
+                All orders are shipped via ground shipping. Once your order ships, you will receive a tracking number.
+                Current carrier delivery times are 1 to 5 business days depending on your location.
+                For reference, all orders ship from California. So fill that cart!
+            </div>
+
+            <div className='faqQuestion'>
+                What are your return policies?
+            </div>
+            <div className='faqAnswer'>
+                <div className='faqSubHeader'>Returns and Exchanges</div>
+                All sales are final. Returns and/or exchanges are not accepted. Please don’t hesitate to reach out
+                if you would like additional info on any products in our shop. 
+                <div className='faqSubHeader'>Damages and Issues</div>
+                Please inspect your order upon receipt and contact us immediately if the item is defective,
+                damaged or if you receive the wrong item, so that we can evaluate the issue and make it right.
+                <div className='faqSubHeader'>Refunds for Damages and Issues</div>
+                We will notify you once we’ve received and inspected your return, and let you know if the
+                refund was approved or not. If approved, you’ll be automatically refunded on your original
+                payment method. Please remember it can take some time for your bank or credit card company
+                to process and post the refund too.
+            </div>
+            <div className='faqQuestion'>
+                Can I cancel my order?
+            </div>
+            <div className='faqAnswer'>
+                All sales are final, and orders cannot be cancelled.
+            </div>
+            <div className='faqQuestion'>
+                What do you do with my info you collect?
+            </div>
+            <div className='faqAnswer'>
+                Click here to review our Terms and Conditions
+            </div>
+
         </div>
     )
 }
