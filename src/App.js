@@ -24,7 +24,7 @@ function getBreakpoints() {
     }
 }
 function App() {
-    const [currentView, setCurrentView] = useState('Shop');
+    const [currentView, setCurrentView] = useState('Home');
     const shopref = useRef(null);
     const [breakpoints, setBreakpoints] = useState(getBreakpoints());
 
@@ -55,7 +55,11 @@ function App() {
                             tabIndex='0'
                             onClick={() => {
                                 setCurrentView(opt);
-                                window.scrollTo(0, 0);
+                                window.scrollTo({
+                                    top: 0,
+                                    left: 0,
+                                    behavior: 'smooth'
+                                });
                             }}
                         >
                             {opt}
@@ -67,9 +71,9 @@ function App() {
 
     return (
         <div className="App">
-            {/* <div id='topBanner'>Free Shipping On All Orders Over $50!</div> */}
-            {/* {!breakpoints.isS && renderNav()} */}
-{/* 
+            <div id='topBanner'>Free Shipping On All Orders Over $50!</div>
+            {!breakpoints.isS && renderNav()}
+
             {currentView === 'Home' &&
                 <div
                     id={'splash'}
@@ -77,7 +81,7 @@ function App() {
                 >
                     <img src={logo} alt={'KSS Logo'} />
                 </div>
-            } */}
+            }
 
 
             <ShopSection
@@ -85,22 +89,22 @@ function App() {
                 currentView={currentView}
             />
 
-            {/* {currentView === 'Contact' &&
+            {currentView === 'Contact' &&
 
                 <Contact
                     currentView={currentView}
                 />
-            } */}
-            {/* {currentView === 'FAQs' &&
+            }
+            {currentView === 'FAQs' &&
                 <FAQ
                     currentView={currentView}
                     setCurrentView={setCurrentView}
                 />
-            } */}
-            {/* {breakpoints.isS && renderNav()} */}
-            {/* <Footer
+            }
+            {breakpoints.isS && renderNav()}
+            <Footer
                 currentView={currentView}
-            /> */}
+            />
 
 
         </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import ComponentTemplate from './shopifyItems/ComponentTemplate';
 import './shopSection.scss';
 
@@ -89,11 +89,30 @@ const objBySections = {
 }
 
 const sections = ["shirts", "kimonos", "dresses", "glasses", "masks", "jewelery", "bags", "beach"];
-const navItems = ["Tees", "Kimonos", "Dresses", "Shades", "Masks", "Jewelery", "Bags", "Beach"];
+const navItems = [
+  { navName: "Tees", secName: 'shirts' },
+  { navName: "Kimonos", secName: 'kimonos' },
+  { navName: "Dresses", secName: 'dresses' },
+  { navName: "Shades", secName: 'glasses' },
+  { navName: "Masks", secName: 'masks' },
+  { navName: "Jewelery", secName: 'jewelery' },
+  { navName: "Bags", secName: 'bags' },
+  { navName: "Beach", secName: 'beach' },
+];
 
 
 
 export default function ShopifyTest({ shopRef, currentView }) {
+  const shirtsRef = useRef(null);
+  const kimonosRef = useRef(null);
+  const dressesRef = useRef(null);
+  const glassesRef = useRef(null);
+  const masksRef = useRef(null);
+  const jewleryRef = useRef(null);
+  const bagsRef = useRef(null);
+  const beachRef = useRef(null);
+
+
   let sectionClasses = 'largeSection';
   if (currentView !== 'Shop') {
     sectionClasses += ' inactive';
@@ -106,8 +125,11 @@ export default function ShopifyTest({ shopRef, currentView }) {
       <div
         id='bttBtn'
         onClick={() => {
-          window.scrollTo(0, 0);
-
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          });
         }}
       >
         {'<'}
@@ -129,9 +151,46 @@ export default function ShopifyTest({ shopRef, currentView }) {
         </div>
       </div>
       <div id='shopMenu'>
-        {navItems.map(name => {
+        {navItems.map(navItem => {
+          const name = navItem.navName
           return (
-            <div className='shopSectionNavItem'>{name}</div>
+            <div
+              className='shopSectionNavItem'
+              onClick={() => {
+                let ref;
+                switch (navItem.secName) {
+                  case 'kimonos':
+                    ref = kimonosRef;
+                    break;
+                  case 'dresses':
+                    ref = dressesRef;
+                    break;
+                  case 'glasses':
+                    ref = glassesRef;
+                    break;
+                  case 'masks':
+                    ref = masksRef;
+                    break;
+                  case 'jewelery':
+                    ref = jewleryRef;
+                    break;
+                  case 'bags':
+                    ref = bagsRef;
+                    break;
+                  case 'beach':
+                    ref = beachRef;
+                    break;
+                  case 'shirts':
+                  default:
+                    ref = shirtsRef;
+                }
+
+
+                ref.current.scrollIntoView({ behavior: "smooth" });
+
+
+              }}
+            >{name}</div>
           )
         })}
       </div>
@@ -146,11 +205,40 @@ export default function ShopifyTest({ shopRef, currentView }) {
         } else if (itemsLength === 2 || (itemsLength % 2 === 0 && itemsLength < 8)) {
           subDivision = 'twoBy';
         }
+
+
+        let ref;
+        switch (sectionTypeName) {
+          case 'kimonos':
+            ref = kimonosRef;
+            break;
+          case 'dresses':
+            ref = dressesRef;
+            break;
+          case 'glasses':
+            ref = glassesRef;
+            break;
+          case 'masks':
+            ref = masksRef;
+            break;
+          case 'jewelery':
+            ref = jewleryRef;
+            break;
+          case 'bags':
+            ref = bagsRef;
+            break;
+          case 'beach':
+            ref = beachRef;
+            break;
+          case 'shirts':
+          default:
+            ref = shirtsRef;
+        }
         return (
           <div
             className='ShopSection'
             key={section.name}
-            ref={shopRef}
+            ref={ref}
           >
             <div className='ShopSectionHeader'>{section.name}</div>
             <div
