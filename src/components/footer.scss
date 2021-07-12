@@ -14,8 +14,9 @@
     font-weight: 100;
     justify-content: center;
     @media screen and (max-width: $smallScreen) {
+        font-size: 1.1em;
         padding: 0 0.45em;
-        margin-bottom: 2em;
+        margin-bottom: 3em;
         height: 2.15em;
     }
     #footerLinks {
@@ -29,7 +30,6 @@
             justify-content: flex-end;
             align-items: center;
             justify-content: space-around;
-
         }
         .linkHolder {
             &:first-child {
@@ -71,6 +71,10 @@
                     margin-bottom: 0.5em;
                 }
             }
+            @media screen and (max-width: $smallScreen) {
+                height:auto;
+                width:auto;
+            }
             img {
                 cursor: pointer;
                 filter: invert(1);
@@ -83,7 +87,6 @@
                 transition: margin-bottom 0.25s;
 
                 @media screen and (max-width: $smallScreen) {
-                    height: 40px;
                     &:not(:last-child) {
                         margin-right: 20px;
                     }

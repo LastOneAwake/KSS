@@ -103,7 +103,13 @@ export default function ShopifyTest({ shopRef, currentView }) {
       id='shop'
       className={sectionClasses}
     >
-      <div id='bttBtn'>
+      <div
+        id='bttBtn'
+        onClick={() => {
+          window.scrollTo(0, 0);
+
+        }}
+      >
         {'<'}
       </div>
       <div id='shopHeader'>

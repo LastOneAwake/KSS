@@ -16,7 +16,7 @@ body {
   animation: sectionFadeIn 0.1s ease-in-out;
   @media screen and (max-width: $smallScreen) {
     padding-top: 2.5em;
-    min-height: calc(100vh - 6.25em);
+    min-height: calc(100vh - 5.55em);
   }
 }
 #topBanner {

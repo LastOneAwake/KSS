@@ -22,6 +22,10 @@
         border-bottom: solid 1px black;
         padding-bottom: 0.25em;
         margin-bottom: 0.5em;
+        @media screen and (max-width:$smallScreen) {
+            font-size: 3em;
+            
+        }
     }
 
     .faqQuestion {
