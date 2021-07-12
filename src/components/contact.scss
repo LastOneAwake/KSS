@@ -36,6 +36,8 @@
             display: flex;
             @media screen and (max-width: $mediumScreen) {
                 justify-content: center;
+                text-align: center;
+                font-size: 4em;
             }
         }
         #contactInfo {
@@ -97,8 +99,10 @@
                     text-decoration: none;
                     border-bottom: solid 1px white;
                     padding: 0.15em;
-
                     cursor: pointer;
+                    @media screen and (max-width: $smallScreen) {
+                        font-size: 2em;
+                    }
                 }
             }
             #contactSocialMedia {
@@ -117,15 +121,19 @@
                     display: flex;
                     flex-direction: row;
                     justify-content: center;
-                    cursor: pointer;
                     @media screen and (max-width: $mediumScreen) {
                         align-items: center;
                     }
-                    img {
-                        max-height: 45px;
-                        filter: invert(1);
+                    .smIconHolder {
+                        cursor: pointer;
+
                         &:not(:last-child) {
                             margin-right: 2em;
+                        }
+
+                        img {
+                            max-height: 45px;
+                            filter: invert(1);
                         }
                     }
                 }
@@ -158,11 +166,12 @@
         }
         display: flex;
         flex: 1;
-        background-image: url("../assets/mirrorGirl.jpg");
+        background-image: url("../assets/mirrorGirlSized.jpg");
         background-size: cover;
         display: flex;
         justify-content: center;
         align-items: center;
+        background-position: right;
         #ghostShape {
             height: 80%;
             width: 80%;

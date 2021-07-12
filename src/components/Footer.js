@@ -4,6 +4,8 @@ import fbIcon from '../assets/smIcons/facebook.png';
 import instaIcon from '../assets/smIcons/instagram.png';
 import tikTokIcon from '../assets/smIcons/tikTok.png';
 import pinterestIcon from '../assets/smIcons/pinterest.png';
+import terms from '../assets/KSS_terms.pdf';
+import privacy from '../assets/KSS_privacy.pdf';
 
 export default function Footer({ currentView }) {
     const onContact = currentView === 'Contact';
@@ -15,8 +17,21 @@ export default function Footer({ currentView }) {
                 id='footerLinks'
                 className={onContact ? 'onContact' : ''}
             >
-                <a className='footerLink' href='google.com'>Privacy</a>
-                <a className='footerLink' href='google.com'>Terms of Use</a>
+                <div className='linkHolder'>
+                    <a
+                        className='footerLink'
+                        href={privacy}
+                    >
+                        Privacy
+                    </a>
+                </div>
+                <div className='linkHolder'>
+                    <a className='footerLink'
+                        href={terms}
+                    >
+                        Terms of Use
+                    </a>
+                </div>
             </div>
             {!onContact &&
                 <div id='footerSMIcons'>

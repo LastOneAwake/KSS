@@ -15,7 +15,7 @@
         justify-content: center;
         align-items: center;
         font-family: $headerFont;
-        color: $gold;
+        color: white;
 
         font-size: 5em;
         margin-top: 0.75em;
@@ -30,20 +30,43 @@
         font-size: 2em;
     }
     .faqAnswer {
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
-        align-items: flex-start;
+        display: block;
         color: white;
         text-align: left;
         font-family: $sansFont;
-        font-size: 1.2em;
-        padding: 1em;
-        .faqSubHeader {
-            font-size: 1.2em;
-            text-decoration: underline;
-            margin-bottom: .5em;
+        font-size: 1.5em;
+        padding: .5em 1em 2em 1em;
+        line-height: 1.35em;
+        a,
+        span {
+            color: $lightGold;
+            cursor: pointer;
+            transition: background-color 0.25s, color 0.25s;
+            padding: 0.25em;
+            border-radius: 5px;
+            &:hover {
+                background-color: $beige;
+                color: $mauve;
+            }
+        }
+        a {
+            display: block;
+            margin: 0.5em 0;
+            width: fit-content;
+            font-size: 0.8;
+        }
+        &#returnsFAQ {
+            .faqSubHeader {
+                font-size: 1.2em;
+                text-decoration: underline;
+                margin-bottom: 0.5em;
+            }
 
+            p {
+                &:not(:last-child) {
+                    margin-bottom: 1em;
+                }
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ const objBySections = {
     ]
   },
   kimonos: {
-    name: "Kimonos",
+    name: "Kimonos? More like KimoYES!",
     prods: [
       { id: 6697434579142, name: 'Boho Teal Kimono', loaded: false },
       { id: 6697444442310, name: 'Crochet Medallion Tassel Kimono', loaded: false },
@@ -62,7 +62,7 @@ const objBySections = {
     prods: [
       { id: 6630365659334, name: 'resting beach face', loaded: false },
       { id: 6630231998662, name: '"Sealed with A Kiss" Beaded Clutch', loaded: false },
-      { id: 6697409118406, name: '"Woke Up Like This" Faux Suede Cosmetic Bags', loaded: false },
+      { id: 6781325607110, name: '"None of This Was On My List" - Tote', loaded: false },
     ]
   },
   beach: {
@@ -89,6 +89,9 @@ const objBySections = {
 }
 
 const sections = ["shirts", "kimonos", "dresses", "glasses", "masks", "jewelery", "bags", "beach"];
+const navItems = ["Tees", "Kimonos", "Dresses", "Shades", "Masks", "Jewelery", "Bags", "Beach"];
+
+
 
 export default function ShopifyTest({ shopRef, currentView }) {
   let sectionClasses = 'largeSection';
@@ -100,6 +103,32 @@ export default function ShopifyTest({ shopRef, currentView }) {
       id='shop'
       className={sectionClasses}
     >
+      <div id='bttBtn'>
+        {'<'}
+      </div>
+      <div id='shopHeader'>
+        <div id='stsHolder'>
+          <div id='stsL'>
+            Shop
+          </div>
+          <div id='stsR'>
+            <div className='stsSingle'>The</div>
+            <div className='stsSingle'>Shed</div>
+          </div>
+        </div>
+        <div id='blurb'>
+          Kiki's She Shed is a California-based, online boutique that believes you shouldn’t have to sacrifice comfort for style.
+          Our boutique showcases affordable, size-inclusive wardrobe essentials.
+          Each curated collection is designed to inspire and boost your confidence.
+        </div>
+      </div>
+      <div id='shopMenu'>
+        {navItems.map(name => {
+          return (
+            <div className='shopSectionNavItem'>{name}</div>
+          )
+        })}
+      </div>
       {sections.map(sectionTypeName => {
         const section = objBySections[sectionTypeName];
         const sectionProds = section.prods;
@@ -112,12 +141,15 @@ export default function ShopifyTest({ shopRef, currentView }) {
           subDivision = 'twoBy';
         }
         return (
-          <div className='ShopSection'
+          <div
+            className='ShopSection'
             key={section.name}
             ref={shopRef}
           >
             <div className='ShopSectionHeader'>{section.name}</div>
-            <div className='sectionBody'>
+            <div
+              className={'sectionBody ' + subDivision}
+            >
 
               {section.prods.map((obj) => {
                 let id = obj.id;

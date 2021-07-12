@@ -39,34 +39,65 @@ export default function About({ currentView }) {
                             Let's Keep In Touch!
                         </div>
                         <div id='contactSMIcons'>
-                            <img
-                                src={fbIcon}
-                                alt='facebook link'
+
+                            <div
+                                className='smIconHolder'
+                                tabIndex='0'
                                 onClick={() => {
                                     window.open('https://www.facebook.com/kikissheshed', '_blank')
                                 }}
-                            />
-                            <img
-                                src={instaIcon}
-                                alt='instagram link'
+                            >
+                                <img
+                                    src={fbIcon}
+                                    alt='facebook link'
+
+                                />
+                            </div>
+                            <div
+                                className='smIconHolder'
+                                tabIndex='0'
                                 onClick={() => {
-                                    window.open('https://www.instagram.com/kikis.she.shed/', '_blank')
+                                    window.open('https://www.facebook.com/kikissheshed', '_blank')
                                 }}
-                            />
-                            <img
-                                src={tikTokIcon}
-                                alt='tiktok link'
+                            >
+                                <img
+                                    src={instaIcon}
+                                    alt='instagram link'
+                                    onClick={() => {
+                                        window.open('https://www.instagram.com/kikis.she.shed/', '_blank')
+                                    }}
+                                />
+                            </div>
+                            <div
+                                className='smIconHolder'
+                                tabIndex='0'
                                 onClick={() => {
-                                    window.open('https://www.tiktok.com/@kikis.she.shed', '_blank')
+                                    window.open('https://www.facebook.com/kikissheshed', '_blank')
                                 }}
-                            />
-                            <img
-                                src={pinterestIcon}
-                                alt='instagram link'
+                            >
+                                <img
+                                    src={tikTokIcon}
+                                    alt='tiktok link'
+                                    onClick={() => {
+                                        window.open('https://www.tiktok.com/@kikis.she.shed', '_blank')
+                                    }}
+                                />
+                            </div>
+                            <div
+                                className='smIconHolder'
+                                tabIndex='0'
                                 onClick={() => {
-                                    window.open('https://www.pinterest.com/kikissheshed/_created/', '_blank')
+                                    window.open('https://www.facebook.com/kikissheshed', '_blank')
                                 }}
-                            />
+                            >
+                                <img
+                                    src={pinterestIcon}
+                                    alt='instagram link'
+                                    onClick={() => {
+                                        window.open('https://www.pinterest.com/kikissheshed/_created/', '_blank')
+                                    }}
+                                />
+                            </div>
                         </div>
                     </div>
                     {/* <div id='shopPolicies'>

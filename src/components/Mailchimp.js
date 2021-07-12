@@ -23,7 +23,7 @@ export default function Mailchimp() {
                             name="EMAIL"
                             className="email"
                             id="mce-EMAIL"
-                            placeholder="Enter Your Email"
+                            placeholder="Drop Us Your Email!"
                             required={true}
 
                         />

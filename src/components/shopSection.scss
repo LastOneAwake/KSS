@@ -4,27 +4,129 @@
     &.inactive {
         display: none;
     }
-
     width: 100%;
-    background: rgb(214, 214, 214);
+    background: url("../assets/shopBG.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: bottom;
+
     position: relative;
     display: flex;
     flex-flow: wrap;
     justify-content: space-evenly;
     align-items: flex-start;
     transition: opacity 0.25s;
+
+    #bttBtn {
+        position: fixed;
+        bottom: 1em;
+        right: 0.5em;
+        font-size: 4em;
+        color: white;
+        font-family: $sansFont;
+        transform: rotate(90deg);
+        background-color: rgba(black, 0.5);
+        border-radius: 50%;
+        height: 1.1em;
+        width: 1.1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 0.1em;
+        box-shadow: 5px -5px 9px rgba(black, 0.5);
+        z-index: 999;
+    }
+    #shopHeader {
+        height: 55vh;
+        width: 100vw;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        #stsHolder {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            flex-direction: column;
+            flex: 3;
+            #stsL {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+
+                font-size: 15em;
+                font-family: $serifFont;
+                color: white;
+            }
+            #stsR {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: flex-end;
+                flex-direction: row;
+                .stsSingle {
+                    font-size: 4em;
+                    font-family: $serifFont;
+                    font-family: $serifFont;
+                    color: white;
+                    text-align: left;
+                    margin-right: 0.25em;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    #blurb {
+        display: flex;
+        flex: 1;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10%;
+        font-size: 1.75em;
+        color: white;
+        font-size: 100;
+    }
+    #shopMenu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        font-size: 2em;
+        height: 2.5em;
+        .shopSectionNavItem {
+            font-family: $serifFont;
+            color: white;
+            background-color: rgba(white, 0.25);
+            border-radius: 10px;
+            padding: 0 0.1em;
+            display: flex;
+            flex: 1;
+            text-align: center;
+            justify-content: center;
+            padding: 0.25em 0;
+            margin: 0.5em;
+            transition: background-color 0.25s, color 0.25s, margin-bottom 0.25s;
+            cursor: pointer;
+            box-sizing: border-box;
+            &:hover {
+                background-color: $mauve;
+                margin-bottom: 1em;
+            }
+        }
+    }
+
     .ShopSectionHeader {
         font-family: $headerFont;
-        border-bottom: solid 1px black;
+        // border-bottom: solid 1px black;
         margin: 1em 0;
         text-align: left;
         padding-left: 0.5em;
         font-size: 4em;
-        color: black;
+        color: $lightGold;
     }
     .ShopSection {
         width: 100%;
@@ -34,6 +136,17 @@
             flex-flow: wrap;
             justify-content: space-evenly;
             align-items: flex-start;
+            // &.single {
+            //     justify-content: flex-start;
+            //     padding-left: 5em;
+            //     @media screen and (max-width: $smallScreen) {
+            //         justify-content: space-evenly;
+            //         padding-left: 0;
+            //     }
+            // }
+            &.twoBy {
+                padding: 0 15%;
+            }
             .productContainer {
                 width: 28.5%;
                 margin-bottom: 4em;
@@ -48,11 +161,19 @@
                 border-radius: 10px;
                 vertical-align: top;
                 &.single {
-                    width: 45%;
+                    width: 35%;
+
+                    @media screen and (max-width: 750px) {
+                        width: 44%;
+                    }
                 }
                 &.twoBy {
-                    width: 35%;
+                    width: 42%;
+                    @media screen and (max-width: 750px) {
+                        width: 44%;
+                    }
                 }
+
                 .shopify-buy-frame {
                     display: flex;
                     justify-content: space-evenly;
@@ -108,11 +229,11 @@
                             //price container
                             span {
                                 //price
-                                color: white;
+                                color: $lightGold;
                                 padding: 0.75em;
                                 font-family: $sansFont;
                                 font-weight: 800;
-                                font-size: 1.5em;
+                                font-size: 1.85em;
                             }
                         }
                         .shopify-buy__product__variant-selectors {
@@ -134,6 +255,10 @@
                                     //actual cart button
                                     height: 100%;
                                     padding: 0 1em;
+
+                                    @media screen and (max-width: $smallScreen) {
+                                        padding: 0;
+                                    }
                                 }
                             }
                         }
@@ -154,7 +279,6 @@
                             span {
                                 text-align: left;
                                 font-size: 0.8em;
-                                
                             }
                             p {
                                 color: white;
@@ -168,7 +292,7 @@
                                     padding: 1.5em 0em;
                                 }
                                 &:last-of-type {
-                                    font-size: 0.8em;
+                                    font-size: 1em;
                                 }
                                 span {
                                     text-align: left;
@@ -179,10 +303,13 @@
                                 text-align: left;
                                 font-family: $sansFont;
                                 font-weight: 300;
-                                font-size: 0.8em;
+                                font-size: 1em;
                                 li {
                                     font-family: $sansFont;
                                     font-weight: 400;
+                                    p {
+                                        padding: 0 !important;
+                                    }
                                 }
                             }
                         }

@@ -21,17 +21,31 @@
     #footerLinks {
         display: flex;
         flex: 1;
-        &.onContact {
-            justify-content: center;
-            align-items: center;
+
+        @media screen and (max-width: $smallScreen) {
+            justify-content: space-around;
         }
-        .footerLink {
-            &:not(:last-child) {
-                padding-right: 2em;
+        &.onContact {
+            justify-content: flex-end;
+            align-items: center;
+            justify-content: space-around;
+
+        }
+        .linkHolder {
+            &:first-child {
+                margin-right: 2em;
             }
-            color: white;
-            text-decoration: none;
-            text-align: center;
+            @media screen and (max-width: $smallScreen) {
+                font-size: 0.75em;
+                &:first-child {
+                    margin-right: 0;
+                }
+            }
+            .footerLink {
+                color: white;
+                text-decoration: none;
+                text-align: center;
+            }
         }
     }
     #footerSMIcons {

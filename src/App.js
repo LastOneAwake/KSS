@@ -71,7 +71,7 @@ function App() {
 
     return (
         <div className="App">
-            <div id='topBanner'>Free Shipping on all orders over $40!</div>
+            <div id='topBanner'>Free Shipping On All Orders Over $50!</div>
             {!breakpoints.isS && renderNav()}
 
             {currentView === 'Home' &&
@@ -98,6 +98,7 @@ function App() {
             {currentView === 'FAQs' &&
                 <FAQ
                     currentView={currentView}
+                    setCurrentView={setCurrentView}
                 />
             }
             {breakpoints.isS && renderNav()}

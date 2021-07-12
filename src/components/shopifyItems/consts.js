@@ -296,7 +296,8 @@ const objBySections = {
         prods: {
             6630365659334: { id: 6630365659334, name: 'resting beach face', loaded: false },
             6630231998662: { id: 6630231998662, name: '"Sealed with A Kiss" Beaded Clutch', loaded: false },
-            6697409118406: { id: 6697409118406, name: '"Woke Up Like This" Faux Suede Cosmetic Bags', loaded: false },
+            6781325607110: { id: 6781325607110, name: '"None of This Was On My List" - Tote', loaded: false },
+
         }
     },
     beach: {
