@@ -26,7 +26,6 @@ export default function About({ currentView }) {
                 <div id={'contactInfo'}
                     className={'contactSection'}
                 >
-
                     <MailingList />
                     <div
                         id='contactEmail'

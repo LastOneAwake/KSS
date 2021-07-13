@@ -9,6 +9,7 @@ export default function FAQ({ currentView, setCurrentView }) {
     if (currentView !== 'FAQs') {
         sectionClasses += ' inactive';
     }
+
     return (
         <div
             id='FAQs'
@@ -23,7 +24,12 @@ export default function FAQ({ currentView, setCurrentView }) {
                 All non-custom items ship within 3 business days from the time of order, excluding holidays.
                 All orders are shipped via ground shipping. Once your order ships, you will receive a tracking number.
                 Current carrier delivery times are 1 to 5 business days depending on your location.
-                For reference, all orders ship from California. So fill that cart! <span onClick={() => {
+                For reference, all orders ship from California. <span onClick={() => {
+                    window.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: 'auto'
+                    });
                     setCurrentView('Shop');
                 }}>Shop The Shed!</span>
             </div>
@@ -45,8 +51,9 @@ export default function FAQ({ currentView, setCurrentView }) {
                     Please inspect your order upon receipt and contact us immediately if the item is defective,
                     damaged or if you receive the wrong item, so that we can evaluate the issue and make it right.
                 </p>
+                <div className='faqSubHeader'>Refunds for Damages and Issues</div>
+
                 <p>
-                    <div className='faqSubHeader'>Refunds for Damages and Issues</div>
                     We will notify you once we’ve received and inspected your return, and let you know if the
                     refund was approved or not. If approved, you’ll be automatically refunded on your original
                     payment method. Please remember it can take some time for your bank or credit card company
@@ -65,19 +72,23 @@ export default function FAQ({ currentView, setCurrentView }) {
             </div>
             <div className='faqAnswer'>
                 Rest assured; we NEVER sell your personal info.
-                
-                <a
+
+                <div
                     className='footerLink'
-                    href={privacy}
+                    onClick={() => {
+                        window.open(privacy);
+                    }}
                 >
                     Please click here for our Privacy Policy.
-                </a>
-                
-                <a className='footerLink'
-                    href={terms}
+                </div>
+
+                <div className='footerLink'
+                    onClick={() => {
+                        window.open(terms);
+                    }}
                 >
                     Click here to review our Terms and Conditions
-                </a>
+                </div>
             </div>
 
         </div>

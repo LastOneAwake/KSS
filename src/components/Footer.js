@@ -18,19 +18,23 @@ export default function Footer({ currentView }) {
                 className={onContact ? 'onContact' : ''}
             >
                 <div className='linkHolder'>
-                    <a
+                    <div
                         className='footerLink'
-                        href={privacy}
+                        onClick={() => {
+                            window.open(privacy);
+                        }}
                     >
                         Privacy
-                    </a>
+                    </div>
                 </div>
                 <div className='linkHolder'>
-                    <a className='footerLink'
-                        href={terms}
-                    >
-                        Terms of Use
-                    </a>
+                <div className='footerLink'
+                    onClick={() => {
+                        window.open(terms);
+                    }}
+                >
+                    Terms Of Use
+                </div>
                 </div>
             </div>
             {!onContact &&

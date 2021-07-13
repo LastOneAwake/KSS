@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 export default function Mailchimp() {
     const [emailValue, updateEmailValue] = useState('');
+    const [fakeboiValue, setfakeboiValue] = useState('');
+
 
     return (<div>
         <div id="mc_embed_signup">
@@ -27,7 +29,15 @@ export default function Mailchimp() {
                             required={true}
 
                         />
-                        {MC_antiBot_markup()}
+                        <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
+                            <input type="text"
+                                name="b_e522f5bb77fc5652f90621e9f_c3e7700af3"
+                                tabIndex="-1"
+                                value={fakeboiValue}
+                                onChange={e => setfakeboiValue(e.target.value)}
+
+                            />
+                        </div>
                         <div className="clear">
                             <input type="submit"
                                 value="Subscribe"
@@ -45,14 +55,14 @@ export default function Mailchimp() {
 }
 
 
-function MC_antiBot_markup() {
+// function MC_antiBot_markup() {
 
-    return (
-        <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
-            <input type="text"
-                name="b_e522f5bb77fc5652f90621e9f_c3e7700af3"
-                tabIndex="-1"
-                value="" />
-        </div>
-    );
-}
+//     return (
+//         <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
+//             <input type="text"
+//                 name="b_e522f5bb77fc5652f90621e9f_c3e7700af3"
+//                 tabIndex="-1"
+//                 value="" />
+//         </div>
+//     );
+// }

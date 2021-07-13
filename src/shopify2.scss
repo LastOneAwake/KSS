@@ -529,6 +529,10 @@ input[type="number"]::-webkit-outer-spin-button {
     background-position: center;
     padding: 0;
     border: none;
+    @media screen and (max-width: 850px) {
+        width: calc(36.666% - 15px);
+        margin: 6px;
+    }
 }
 .shopify-buy__carousel-item:nth-child(n + 7) {
     margin-top: 15px;
@@ -598,7 +602,6 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .shopify-buy__quantity {
     font-size: 17px;
-    
 }
 .shopify-buy__product__actual-price {
     font-size: 18px;
@@ -1134,6 +1137,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .shopify-buy__carousel-item {
     width: calc(16.666% - 15px);
+
     margin-left: 15px;
     display: inline-block;
     vertical-align: middle;
@@ -1143,6 +1147,10 @@ input[type="number"]::-webkit-outer-spin-button {
     background-position: center;
     padding: 0;
     border: none;
+    @media screen and (max-width: 850px) {
+        width: calc(36.666% - 15px);
+        margin: 6px;
+    }
 }
 .shopify-buy__carousel-item:nth-child(n + 7) {
     margin-top: 15px;

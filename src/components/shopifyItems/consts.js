@@ -64,6 +64,13 @@ const options = {
             }
         }
     },
+
+
+
+
+
+
+    
     "modalProduct": {
         "contents": {
             "img": false,
@@ -341,7 +348,7 @@ export function loadScript(cb) {
 export function createElement(id, section) {
     var client = ShopifyBuy.buildClient({
         domain: 'kikis-she-shed.myshopify.com',
-        storefrontAccessToken: '508717b1b227262a31a434d890d4875a',
+        storefrontAccessToken: process.env.REACT_APP_TAFS_KEY,
     });
 
     const prod = objBySections[section].prods[id];
@@ -352,6 +359,7 @@ export function createElement(id, section) {
         ui.createComponent('product', {
             id: id,
             node: document.getElementById((`product-component-${id}-${section}`)),
+            moneyFormat: '%24%7B%7Bamount%7D%7D',
             options: options
         });
     });

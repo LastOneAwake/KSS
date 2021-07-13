@@ -102,7 +102,7 @@ const navItems = [
 
 
 
-export default function ShopifyTest({ shopRef, currentView }) {
+export default function ShopSection({ shopRef, currentView }) {
   const shirtsRef = useRef(null);
   const kimonosRef = useRef(null);
   const dressesRef = useRef(null);
@@ -151,11 +151,12 @@ export default function ShopifyTest({ shopRef, currentView }) {
         </div>
       </div>
       <div id='shopMenu'>
-        {navItems.map(navItem => {
+        {navItems.map((navItem, i) => {
           const name = navItem.navName
           return (
             <div
               className='shopSectionNavItem'
+              key={navItem + 'ContactMenu' + i}
               onClick={() => {
                 let ref;
                 switch (navItem.secName) {

@@ -5,7 +5,7 @@
         display: none;
     }
     width: 100%;
-    background: url("../assets/shopBG.jpg");
+    background: url("../assets/shopBG_dark.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -17,7 +17,9 @@
     justify-content: space-evenly;
     align-items: flex-start;
     transition: opacity 0.25s;
-
+    @media screen and (min-width: $mediumScreen) {
+        padding-top: 5em;
+    }
     #bttBtn {
         cursor: pointer;
         position: fixed;
@@ -37,6 +39,28 @@
         padding-right: 0.1em;
         box-shadow: 5px -5px 9px rgba(black, 0.5);
         z-index: 999;
+
+        background: linear-gradient(-45deg, $lightGold, $darkPink, $mauve, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+
+        @keyframes gradient {
+            0% {
+                background-position: 20% 80%;
+            }
+            25%{
+                background-position: 50% 0%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            75%{
+                background-position: 75% 50%;
+            }
+            100% {
+                background-position: 20% 80%;
+            }
+        }
     }
     #shopHeader {
         height: 55vh;
@@ -63,7 +87,7 @@
                 align-items: flex-start;
                 font-size: 15em;
                 @media screen and (max-width: $smallScreen) {
-                    font-size: 8em;
+                    font-size: 10em;
                 }
                 font-family: $serifFont;
                 color: white;
@@ -98,9 +122,11 @@
         font-size: 1.75em;
         color: white;
         font-size: 100;
+        background-color: rgba(black, 0.25);
         @media screen and (max-width: $smallScreen) {
-            font-size: 1.1em;
+            font-size: 1.4em;
             flex: 2;
+            font-family: $sansFont;
         }
     }
     #shopMenu {
@@ -141,7 +167,6 @@
             }
             @media screen and (max-width: $smallScreen) {
                 padding: 0.25em;
-
             }
         }
     }
