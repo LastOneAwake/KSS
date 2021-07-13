@@ -49,6 +49,10 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  @media screen and (max-width: $smallScreen) {
+
+    background-attachment: scroll;
+}
   &.inactive {
     opacity: 0;
     z-index: -1;

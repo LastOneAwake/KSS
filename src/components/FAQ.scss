@@ -10,6 +10,11 @@
     display: flex;
     flex-direction: column;
     padding: 2em 4em;
+
+    @media screen and (max-width: $smallScreen) {
+        background-position: right;
+        background-attachment: scroll;
+    }
     #FAQheader {
         display: flex;
         justify-content: center;
@@ -22,9 +27,8 @@
         border-bottom: solid 1px black;
         padding-bottom: 0.25em;
         margin-bottom: 0.5em;
-        @media screen and (max-width:$smallScreen) {
+        @media screen and (max-width: $smallScreen) {
             font-size: 3em;
-            
         }
     }
 
@@ -39,7 +43,7 @@
         text-align: left;
         font-family: $sansFont;
         font-size: 1.5em;
-        padding: .5em 1em 2em 1em;
+        padding: 0.5em 1em 2em 1em;
         line-height: 1.35em;
         .footerLink,
         span {
