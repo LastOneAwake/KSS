@@ -71,7 +71,9 @@
         justify-content: center;
         align-items: center;
         flex: 1;
-
+        @media screen and (max-width: $smallScreen) {
+            height:65vh
+        }
         #stsHolder {
             display: flex;
             justify-content: flex-end;
@@ -143,6 +145,7 @@
             font-size: 1.5em;
             width: 80%;
             height: auto;
+            margin-top: 1em;
         }
         .shopSectionNavItem {
             font-family: $serifFont;
