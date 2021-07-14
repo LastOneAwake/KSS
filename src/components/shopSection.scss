@@ -19,6 +19,17 @@
     transition: opacity 0.25s;
     @media screen and (min-width: $mediumScreen) {
         padding-top: 5em;
+        background-size: contain;
+    }
+    /* Landscape*/
+
+    @media only screen and (min-device-width: 1366px) and (max-device-height: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+        background-attachment: scroll;
+    }
+
+    /* Portrait*/
+    @media only screen and (min-device-width: 1024px) and (max-device-height: 1366px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+        background-attachment: scroll;
     }
     #bttBtn {
         cursor: pointer;
@@ -48,13 +59,13 @@
             0% {
                 background-position: 20% 80%;
             }
-            25%{
+            25% {
                 background-position: 50% 0%;
             }
             50% {
                 background-position: 100% 50%;
             }
-            75%{
+            75% {
                 background-position: 75% 50%;
             }
             100% {
@@ -72,7 +83,7 @@
         align-items: center;
         flex: 1;
         @media screen and (max-width: $smallScreen) {
-            height:65vh
+            height: 65vh;
         }
         #stsHolder {
             display: flex;

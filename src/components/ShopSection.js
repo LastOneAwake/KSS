@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import ComponentTemplate from './shopifyItems/ComponentTemplate';
 import './shopSection.scss';
 
@@ -113,6 +113,14 @@ export default function ShopSection({ shopRef, currentView }) {
   const beachRef = useRef(null);
 
 
+
+  /**
+   load when onscroll scroll distance from top is within 100ish? px of the top of the section.
+   load entire section 
+   */
+
+
+
   let sectionClasses = 'largeSection';
   if (currentView !== 'Shop') {
     sectionClasses += ' inactive';
@@ -199,7 +207,6 @@ export default function ShopSection({ shopRef, currentView }) {
         const section = objBySections[sectionTypeName];
         const sectionProds = section.prods;
         const itemsLength = sectionProds.length;
-
         let subDivision = '';
         if (itemsLength === 1) {
           subDivision = 'single'
