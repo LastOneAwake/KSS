@@ -6,6 +6,8 @@ import tikTokIcon from '../assets/smIcons/tikTok.png';
 import pinterestIcon from '../assets/smIcons/pinterest.png';
 import terms from '../assets/KSS_terms.pdf';
 import privacy from '../assets/KSS_privacy.pdf';
+import MailingList from './JoinMailingListForm';
+
 
 export default function Footer({ currentView }) {
     const onContact = currentView === 'Contact';
@@ -28,15 +30,24 @@ export default function Footer({ currentView }) {
                     </div>
                 </div>
                 <div className='linkHolder'>
-                <div className='footerLink'
-                    onClick={() => {
-                        window.open(terms);
-                    }}
-                >
-                    Terms Of Use
-                </div>
+                    <div className='footerLink'
+                        onClick={() => {
+                            window.open(terms);
+                        }}
+                    >
+                        Terms Of Use
+                    </div>
                 </div>
             </div>
+            {!onContact &&
+
+                <div className='formHolder'>
+                    <MailingList
+                        placeholderValue={'lemme get dat email grrrl'}
+                    />
+
+                </div>
+            }
             {!onContact &&
                 <div id='footerSMIcons'>
                     <div

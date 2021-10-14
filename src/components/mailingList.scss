@@ -37,6 +37,7 @@
             @media screen and (max-width: 1000px) {
                 width: 100%;
             }
+            box-sizing: border-box;
         }
 
         label,
@@ -46,18 +47,24 @@
         }
 
         input[type="submit"] {
-            font-size: 1.35em;
-            border-radius: 15px;
+            font-size: 1.55em;
+            border-radius: 5px;
             outline: 0;
             cursor: pointer;
-            background-color: darken($lightGreen, 10%);
+            background: linear-gradient(90deg, #538c53, #2d8c2d);
             border: solid 2px $lightText;
+            font-family: $headerCompFont;
             box-sizing: border-box;
             transition: background-color 0.3s, color 0.4s, box-shadow 0.4s;
             color: $lightText;
             user-select: none;
             width: 100%;
             padding: 0.35em 1.25em;
+
+            font-family: $headerCompFont;
+            letter-spacing: 0.15em;
+            color: $lightBG;
+            font-weight: 700;
 
             &:hover {
                 color: white;

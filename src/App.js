@@ -1,12 +1,13 @@
 import logo from './assets/logo.svg';
 import './spaStyle.scss';
 import './components/navMenu.scss';
-import './shopify2.scss';
 import React, { useState, useRef, useEffect } from 'react';
 import ShopSection from './components/ShopSection';
 import Footer from './components/Footer';
 import Contact from './components/Contact';
 import FAQ from './components/FAQ';
+import ShopProvider from './components/shopContext';
+import QuickViewModal from './components/QuickViewModal';
 
 const navMenuOptions = [
     'Home',
@@ -27,14 +28,23 @@ function App() {
     const [currentView, setCurrentView] = useState('Home');
     const shopref = useRef(null);
     const [breakpoints, setBreakpoints] = useState(getBreakpoints());
+    const [selectedProductObj, setSelectedProductObj] = useState(null);
+
 
     useEffect(() => {
         window.addEventListener('resize', () => {
             setBreakpoints(getBreakpoints());
         })
+        window.addEventListener('onbeforeunload', () => {
+            setSelectedProductObj(null);
+        })
         return () => {
             window.removeEventListener('resize', () => {
                 setBreakpoints(getBreakpoints());
+            })
+            window.removeEventListener('onbeforeunload', () => {
+                setSelectedProductObj(null);
+
             })
         }
     }, []);
@@ -59,7 +69,7 @@ function App() {
                                     top: 0,
                                     left: 0,
                                     behavior: 'auto'
-                                  });
+                                });
                             }}
                         >
                             {opt}
@@ -68,46 +78,58 @@ function App() {
                 })}
             </div>);
     }
+    console.log('selectedProductObj', selectedProductObj);
 
     return (
-        <div className="App">
-            <div id='topBanner'>Free Shipping On All Orders Over $50!</div>
-            {!breakpoints.isS && renderNav()}
+        <ShopProvider>
+            <div className="App">
+                {selectedProductObj?.id &&
+                    <QuickViewModal
+                        productObj={selectedProductObj}
+                        productTitle={selectedProductObj}
+                        variantsArray={selectedProductObj.variants}
+                        dismissDetailWindow={() => {
+                            setSelectedProductObj(null);
+                        }}
+                    />
+                }
+                <div id='topBanner'>Free Shipping On All Orders Over $50!</div>
+                {!breakpoints.isS && renderNav()}
 
-            {currentView === 'Home' &&
-                <div
-                    id={'splash'}
-                    className={'largeSection' + (currentView !== 'Home' ? ' inactive' : '')}
-                >
-                    <img src={logo} alt={'KSS Logo'} />
-                </div>
-            }
+                {currentView === 'Home' &&
+                    <div
+                        id={'splash'}
+                        className={'largeSection' + (currentView !== 'Home' ? ' inactive' : '')}
+                    >
+                        <img src={logo} alt={'KSS Logo'} />
+                    </div>
+                }
 
-
-            <ShopSection
-                shopRef={shopref}
-                currentView={currentView}
-            />
-
-            {currentView === 'Contact' &&
-
-                <Contact
+                {currentView === 'Shop' &&
+                    <ShopSection
+                        shopRef={shopref}
+                        currentView={currentView}
+                        selectedProductObj={selectedProductObj}
+                        setSelectedProductObj={setSelectedProductObj}
+                    />
+                }
+                {currentView === 'Contact' &&
+                    <Contact
+                        currentView={currentView}
+                    />
+                }
+                {currentView === 'FAQs' &&
+                    <FAQ
+                        currentView={currentView}
+                        setCurrentView={setCurrentView}
+                    />
+                }
+                {breakpoints.isS && renderNav()}
+                <Footer
                     currentView={currentView}
                 />
-            }
-            {currentView === 'FAQs' &&
-                <FAQ
-                    currentView={currentView}
-                    setCurrentView={setCurrentView}
-                />
-            }
-            {breakpoints.isS && renderNav()}
-            <Footer
-                currentView={currentView}
-            />
-
-
-        </div>
+            </div>
+        </ShopProvider>
     );
 }
 

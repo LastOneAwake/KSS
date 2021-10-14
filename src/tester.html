@@ -1,0 +1,170 @@
+<div id='collection-component-1626226653564'></div>
+<script type="text/javascript">
+    /*<![CDATA[*/
+    (function () {
+        var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+        if (window.ShopifyBuy) {
+            if (window.ShopifyBuy.UI) {
+                ShopifyBuyInit();
+            } else {
+                loadScript();
+            }
+        } else {
+            loadScript();
+        }
+
+        function ShopifyBuyInit() {
+            var client = ShopifyBuy.buildClient({
+                domain: 'kikis-she-shed.myshopify.com',
+                storefrontAccessToken: '508717b1b227262a31a434d890d4875a',
+            });
+            ShopifyBuy.UI.onReady(client).then(function (ui) {
+                ui.createComponent('collection', {
+                    id: '269643874502',
+                    node: document.getElementById('collection-component-1626226653564'),
+                    moneyFormat: '%24%7B%7Bamount%7D%7D',
+                    options: {
+                        "product": {
+                            "styles": {
+                                "product": {
+                                    "@media (min-width: 601px)": {
+                                        "max-width": "calc(33.33333% - 30px)",
+                                        "margin-left": "30px",
+                                        "margin-bottom": "50px",
+                                        "width": "calc(33.33333% - 30px)"
+                                    },
+                                    "img": {
+                                        "height": "calc(100% - 15px)",
+                                        "position": "absolute",
+                                        "left": "0",
+                                        "right": "0",
+                                        "top": "0"
+                                    },
+                                    "imgWrapper": {
+                                        "padding-top": "calc(75% + 15px)",
+                                        "position": "relative",
+                                        "height": "0"
+                                    }
+                                },
+                                "button": {
+                                    "font-size": "17px",
+                                    "padding-top": "16.5px",
+                                    "padding-bottom": "16.5px",
+                                    ":hover": {
+                                        "background-color": "#3f9e62"
+                                    },
+                                    "background-color": "#46af6d",
+                                    ":focus": {
+                                        "background-color": "#3f9e62"
+                                    },
+                                    "padding-left": "83px",
+                                    "padding-right": "83px"
+                                },
+                                "quantityInput": {
+                                    "font-size": "17px",
+                                    "padding-top": "16.5px",
+                                    "padding-bottom": "16.5px"
+                                }
+                            },
+                            "text": {
+                                "button": "Add to Cart"
+                            }
+                        },
+                        "productSet": {
+                            "styles": {
+                                "products": {
+                                    "@media (min-width: 601px)": {
+                                        "margin-left": "-30px"
+                                    }
+                                }
+                            }
+                        },
+                        "modalProduct": {
+                            "contents": {
+                                "img": false,
+                                "imgWithCarousel": true,
+                                "button": false,
+                                "buttonWithQuantity": true
+                            },
+                            "styles": {
+                                "product": {
+                                    "@media (min-width: 601px)": {
+                                        "max-width": "100%",
+                                        "margin-left": "0px",
+                                        "margin-bottom": "0px"
+                                    }
+                                },
+                                "button": {
+                                    "font-size": "17px",
+                                    "padding-top": "16.5px",
+                                    "padding-bottom": "16.5px",
+                                    ":hover": {
+                                        "background-color": "#3f9e62"
+                                    },
+                                    "background-color": "#46af6d",
+                                    ":focus": {
+                                        "background-color": "#3f9e62"
+                                    },
+                                    "padding-left": "83px",
+                                    "padding-right": "83px"
+                                },
+                                "quantityInput": {
+                                    "font-size": "17px",
+                                    "padding-top": "16.5px",
+                                    "padding-bottom": "16.5px"
+                                }
+                            },
+                            "text": {
+                                "button": "Add to cart"
+                            }
+                        },
+                        "option": {},
+                        "cart": {
+                            "styles": {
+                                "button": {
+                                    "font-size": "17px",
+                                    "padding-top": "16.5px",
+                                    "padding-bottom": "16.5px",
+                                    ":hover": {
+                                        "background-color": "#3f9e62"
+                                    },
+                                    "background-color": "#46af6d",
+                                    ":focus": {
+                                        "background-color": "#3f9e62"
+                                    }
+                                }
+                            },
+                            "text": {
+                                "title": "Shopping Bag",
+                                "total": "Subtotal",
+                                "empty": "Nothing here...Fill me up, buttercup!",
+                                "button": "Checkout",
+                                "noteDescription": "Anything you want us to know?"
+                            },
+                            "contents": {
+                                "note": true
+                            }
+                        },
+                        "toggle": {
+                            "styles": {
+                                "toggle": {
+                                    "background-color": "#46af6d",
+                                    ":hover": {
+                                        "background-color": "#3f9e62"
+                                    },
+                                    ":focus": {
+                                        "background-color": "#3f9e62"
+                                    }
+                                },
+                                "count": {
+                                    "font-size": "17px"
+                                }
+                            }
+                        }
+                    },
+                });
+            });
+        }
+    })();
+/*]]>*/
+</script>

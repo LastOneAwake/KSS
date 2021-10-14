@@ -1,60 +1,100 @@
 @import "./vars.scss";
 
 #FAQs {
-    background-image: url("../assets/FAQbg.jpg");
     background-size: cover;
     background-position: bottom;
+    background-image: url("../assets/detailsWindowBG.jpg");
+    background-attachment: fixed;
     &.inactive {
         display: none;
     }
     display: flex;
     flex-direction: column;
-    padding: 2em 4em;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
 
-    @media screen and (max-width: $smallScreen) {
-        background-position: right;
-        background-attachment: scroll;
+    // background-color: green;
+    @media screen and (min-width: $smallScreen) {
+        //med
+        // background-color: orange;
+        padding-left: 2em;
+        align-items: flex-start;
     }
+
+    @media screen and (min-width: $mediumScreen) {
+        // background-color: pink;
+    }
+    @media screen and (min-width: $madLargeScreen) {
+        //big
+        // background-color: rgb(172, 172, 255);
+    }
+
     #FAQheader {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: $headerFont;
-        color: white;
 
-        font-size: 5em;
-        margin-top: 0.75em;
-        border-bottom: solid 1px black;
-        padding-bottom: 0.25em;
-        margin-bottom: 0.5em;
-        @media screen and (max-width: $smallScreen) {
-            font-size: 3em;
+        font-family: $headerCompFont;
+        letter-spacing: 0.125em;
+        word-spacing: 0.1em;
+        color: $darkText;
+
+        border-bottom: solid 1px $lightText;
+        padding-bottom: 0.1em;
+        margin: 0.5em 0 0.2em 0;
+        box-sizing: content-box;
+        max-width: 80vw;
+        font-size: 3em;
+
+        text-align: center;
+        @media screen and (min-width: $smallScreen) {
+            font-size: 5em;
+            margin: 1.5em 0 0.5em 0;
         }
     }
 
     .faqQuestion {
         font-family: $headerFont;
-        color: white;
-        font-size: 2em;
+        color: $darkText;
+        font-size: 2.1em;
+        max-width: 80vw;
+        margin: 0.75em 0;
+        text-align: center;
+        @media screen and (min-width: $smallScreen) {
+            font-size: 2.5em;
+            margin: 0.25em 0;
+        }
     }
     .faqAnswer {
+        font-weight: 400;
         display: block;
-        color: white;
+        color: $darkText;
         text-align: left;
         font-family: $sansFont;
         font-size: 1.5em;
-        padding: 0.5em 1em 2em 1em;
         line-height: 1.35em;
+        max-width: 80vw;
+        padding-top: 1em;
+        border: solid 1px $darkText;
+        border-radius: 2px;
+        padding: 0.75em;
+        box-sizing: border-box;
+        margin-bottom: 1em;
+        text-align: center;
+        box-shadow: 0px 3px 9px rgba($darkText, 0.35);
+        @media screen and (min-width: $smallScreen) {
+            //med
+            text-align: left;
+        }
         .footerLink,
         span {
-            color: $lightGold;
+            color: $mauve;
             cursor: pointer;
             transition: background-color 0.25s, color 0.25s;
-            padding: 0.25em;
             border-radius: 5px;
+            padding: 0 0.15em;
             &:hover {
-                background-color: $beige;
-                color: $mauve;
+                background-color: #bc8f8f;
+                color: $lightText;
             }
         }
         .footerLink {

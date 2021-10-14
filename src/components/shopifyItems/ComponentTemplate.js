@@ -1,9 +1,10 @@
 
 import { ShopifyBuy, loadScript, createElement } from './consts'
+import { createCollection } from './collectionConsts'
 
 
 
-export default function ComponentTemplate({ id, section, className }) {
+export function ComponentTemplate({ id, section, className }) {
     if (ShopifyBuy && ShopifyBuy.UI) {
         createElement(id, section);
     } else {
@@ -16,3 +17,15 @@ export default function ComponentTemplate({ id, section, className }) {
         </div>
     );
 }
+
+
+
+export default function fetchAndCreateCollectionElement(id, section) {
+    if (ShopifyBuy && ShopifyBuy.UI) {
+        createCollection(id, section);
+    } else {
+        loadScript(createCollection(id, section));
+    }
+}
+
+

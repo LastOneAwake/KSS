@@ -1,0 +1,368 @@
+@import "/src/components/vars.scss";
+
+#shop {
+    &.inactive {
+        display: none;
+    }
+    width: 100vw;
+    min-height: 100vh;
+    background: rgb(241, 233, 211);
+    // background: white;
+    background-size: cover;
+    background-attachment: fixed;
+    // background-repeat: no-repeat;
+    background-position: center;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    justify-content: space-evenly;
+    transition: opacity 0.25s;
+    align-items: center;
+
+    @media screen and (min-width: $smallScreen) {
+        //med
+        padding-top: 6em;
+    }
+
+    /* Landscape*/
+
+    @media only screen and (min-device-width: 1366px) and (max-device-height: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+        background-attachment: scroll;
+    }
+
+    /* Portrait*/
+    @media only screen and (min-device-width: 1024px) and (max-device-height: 1366px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+        background-attachment: scroll;
+    }
+
+    .floatingButton {
+        cursor: pointer;
+        position: fixed;
+
+        font-size: 50px;
+        color: white;
+        font-family: $sansFont;
+
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        box-shadow: 0px 3px 4px rgba(rgb(99, 38, 38), 0.5);
+        z-index: 5;
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: center;
+        border: solid 3px rgba(white, 0.55);
+
+        height: 1.1em;
+        width: 1.1em;
+        @media screen and (min-width: $mediumScreen) {
+            height: 1.5em;
+            width: 1.5em;
+        }
+    }
+    #cartButton {
+        bottom: 2.5em;
+        right: 0.5em;
+        @media screen and (min-width: $mediumScreen) {
+            bottom: 3em;
+        }
+        background: linear-gradient(-45deg, $lightGold, $darkPink, $mauve, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+
+        @keyframes gradient {
+            0% {
+                background-position: 2% 50%;
+            }
+            25% {
+                background-position: 50% 60%;
+            }
+            50% {
+                background-position: 10% 0%;
+            }
+            75% {
+                background-position: 85% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        img {
+            max-width: 60%;
+        }
+    }
+
+    #menuButton {
+        bottom: 1em;
+        right: 0.5em;
+
+        background: linear-gradient(-45deg, $lightGold, $darkPink, $mauve, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        transform: rotate(90deg);
+        #upBoy {
+            font-family: $sansFont;
+            max-height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translate(-0.01em, -0.15em);
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 20% 80%;
+            }
+            25% {
+                background-position: 50% 0%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            75% {
+                background-position: 75% 50%;
+            }
+            100% {
+                background-position: 20% 80%;
+            }
+        }
+    }
+    #shopHeader {
+        width: 100vw;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        height: 15em;
+
+        //mobile first
+        flex-direction: column;
+
+        // background-color: rgba(orange, 0.25);
+        @media screen and (min-width: $smallScreen) {
+            //med
+            // background-color: orange;
+            flex-direction: row;
+        }
+
+        @media screen and (min-width: $mediumScreen) {
+            // background-color: pink;
+        }
+        @media screen and (min-width: $madLargeScreen) {
+            //big
+            // background-color: rgb(172, 172, 255);
+            justify-content: center;
+        }
+
+        #stsSpacer {
+            display: flex;
+            flex: 1;
+            padding-left: 1em;
+            box-sizing: border-box;
+            justify-content: center;
+            @media screen and (min-width: $smallScreen) {
+                //med
+                flex: 1;
+                padding: 0 0.25em;
+                justify-content: center;
+            }
+            #stsHolder {
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                flex-direction: column;
+                color: rgb(69, 61, 61);
+                margin-bottom: 1em;
+                @media screen and (min-width: $mediumScreen) {
+                    font-size: 1.15em;
+                }
+
+                @media screen and (min-width: $madLargeScreen) {
+                    //big
+                    font-size: 1.5em;
+                }
+                #stsL {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    font-size: 7.5em;
+                    @media screen and (min-width: $smallScreen) {
+                        //med
+                        font-size: 10em;
+                    }
+                    @media screen and (min-width: $mediumScreen) {
+                        font-size: 9.5em;
+                    }
+
+                    font-family: $serifFont;
+                }
+                #stsR {
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: flex-end;
+                    flex-direction: row;
+                    .stsSingle {
+                        font-family: $serifFont;
+                        font-family: $serifFont;
+                        text-align: left;
+                        margin-right: 0.25em;
+                        cursor: pointer;
+                        font-size: 2em;
+                        @media screen and (min-width: $smallScreen) {
+                            //med
+                            font-size: 2.2em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #shopMenuHolder {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        @media screen and (min-width: $smallScreen) {
+            //med
+            justify-content: flex-start;
+        }
+        #shopMenu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: solid 1px white;
+            background-color: rgba(black, 0.5);
+            width: 75%;
+            padding-bottom: 1em;
+
+            @media screen and (max-width: $smallScreen) {
+                font-size: 1.5em;
+                width: 95%;
+                height: auto;
+            }
+
+            @media screen and (min-width: $mediumScreen) {
+                padding-bottom: 1em;
+            }
+            @media screen and (min-width: $smallScreen) {
+                //med
+                font-size: 0.7em;
+                padding: 0.25em 0 1em 0;
+                width: 95%;
+            }
+            @media screen and (min-width: $madLargeScreen) {
+                //big
+                width: 90%;
+                padding: 3em 0;
+            }
+
+            #shopByCategory {
+                font-family: $headerCompFont;
+                color: $lightText;
+                font-size: 1em;
+                letter-spacing: 0.3em;
+                text-align: center;
+                margin-bottom: 0.5em;
+                border-bottom: solid 1px white;
+                width: 90%;
+                padding: 0.65em 0;
+
+                @media screen and (min-width: $mediumScreen) {
+                    font-size: 2em;
+                    margin-bottom: 0.1em;
+                    padding: 0.35em;
+                }
+                @media screen and (min-width: $madLargeScreen) {
+                    //big
+                    font-size: 2.5em;
+                }
+                @media screen and (min-width: $smallScreen) {
+                    //med
+                    font-size: 2.5em;
+                }
+            }
+            #navItems {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 90%;
+                font-size: 2em;
+                flex-wrap: wrap;
+                .shopSectionNavItem {
+                    font-family: $headerCompFont;
+                    color: $lightText;
+                    font-size: 1.1em;
+                    background-color: rgba(white, 0.1);
+                    padding: 0.1em 0.25em;
+                    letter-spacing: 0.1em;
+                    display: flex;
+                    text-align: center;
+                    justify-content: center;
+                    margin: 0.5em;
+                    transition: background-color 0.25s, color 0.25s, transform 0.25s;
+                    cursor: pointer;
+                    box-sizing: border-box;
+
+                    font-size: 0.5em;
+                    padding: 0.25em 0;
+                    min-width: 40%;
+                    border: solid 2px transparent;
+
+                    @media screen and (min-width: $smallScreen) {
+                        //med
+                        font-size: 1em;
+                        width: auto;
+                        min-width: 38%;
+                        padding: 0.25em 0.5em;
+                        margin: 0.5em;
+                    }
+
+                    @media screen and (min-width: $madLargeScreen) {
+                        //big
+                        font-size: 1.15em;
+                    }
+
+                    &.current {
+                        background-color: $mauve;
+                        border: solid 2px $lightText;
+                    }
+                    &:hover:not(.current) {
+                        @media screen and (min-width: $smallScreen) {
+                            background-color: $mauve;
+                            transform: translateY(-0.25em);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .ShopSectionHeader {
+        font-family: $headerFont;
+        // border-bottom: solid 1px black;
+        margin: 1em 0;
+        text-align: left;
+        padding-left: 0.5em;
+        font-size: 4em;
+        color: $lightGold;
+        @media screen and (max-width: $smallScreen) {
+            font-size: 3em;
+            width: 80%;
+            flex-wrap: wrap;
+        }
+    }
+
+    #shopHolder {
+        display: flex;
+        width: 100%;
+        min-height: 50vh;
+        flex-direction: column;
+    }
+}

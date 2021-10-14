@@ -1,0 +1,411 @@
+@import "/src/components/vars.scss";
+
+#detailsBG {
+    position: fixed;
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgba(black, 0.85);
+    z-index: 9;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #quickViewModal {
+        cursor: default;
+        background: url("../assets/detailsWindowBG.jpg");
+        background-size: cover;
+        //mobile first
+        background-color: $lightText;
+        z-index: 999999;
+        border-radius: 5px;
+        position: relative;
+        max-height: 90vh;
+        width: 98vw;
+        overflow: auto;
+        padding: 1em 0;
+        @media screen and (min-width: $smallScreen) {
+            //med
+            width: 75vw;
+            background-color: orange;
+        }
+        @media screen and (min-width: $mediumScreen) {
+            background-color: green;
+            width: 92.5vw;
+            max-height: 47.5vh;
+        }
+        @media screen and (min-width: $largeScreen) {
+            width: 75vw;
+            max-height: 80vh;
+            background-color: pink;
+        }
+        @media screen and (min-width: $madLargeScreen) {
+            //big
+            width: 65vw;
+            max-height: unset;
+            background-color: rgb(172, 172, 255);
+        }
+
+        #closeButton {
+            display: none;
+            // @media screen and (min-width: $mediumScreen) {
+            //     display: flex;
+            // }
+            cursor: pointer;
+            position: absolute;
+            top: -1.25em;
+            right: -1.25em;
+            height: 2.5em;
+            width: 2.5em;
+            border-radius: 50%;
+            background-color: $lightText;
+            border: solid 2px white;
+
+            justify-content: center;
+            align-items: center;
+            .xLine {
+                height: 80%;
+                width: 3px;
+                background-color: black;
+                border-radius: 2px;
+                position: absolute;
+                &#xLine1 {
+                    transform: rotate(45deg);
+                    // box-shadow: -2px 2px 3px rgba(black, 0.35);
+                }
+                &#xLine2 {
+                    transform: rotate(-45deg);
+                    // box-shadow: -2px 2px 3px rgba(black, 0.35);
+                }
+            }
+        }
+        #quickView_body {
+            display: flex;
+            flex: 1 1;
+            flex-direction: column;
+            @media screen and (min-width: $mediumScreen) {
+                flex-direction: row;
+            }
+            justify-content: flex-start;
+
+            #quickView_imgSection {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                justify-content: space-evenly;
+
+                @media screen and (min-width: $smallScreen) {
+                    //med
+                    // background-color: orange;
+                    width: 100%;
+                }
+                @media screen and (min-width: $mediumScreen) {
+                    // background-color: green;
+                    width: 60%;
+                    flex-direction: row-reverse;
+                }
+
+                @media screen and (min-width: $largeScreen) {
+                    // background-color: pink;
+                    width: 60%;
+                }
+                @media screen and (min-width: $madLargeScreen) {
+                    //big
+                    // background-color: rgb(172, 172, 255);
+                    width: 70%;
+                }
+
+                #mainImg {
+                    cursor: pointer;
+                    //auto both and overwrite per viewport where one takes over and the other one responds
+                    height: auto;
+                    width: auto;
+
+                    @media screen and (min-width: $smallScreen) {
+                        //med
+                        // background-color: orange;
+                        // width: 58vw;
+                    }
+
+                    @media screen and (min-width: $mediumScreen) {
+                        //green
+                        width: 75%;
+                        // max-height: 0%;
+                    }
+                    @media screen and (min-width: $largeScreen) {
+                        //pink
+                        width: 35vw;
+                    }
+                    @media screen and (min-width: $madLargeScreen) {
+                        //big
+                        // background-color: rgb(172, 172, 255);
+                        max-width: 70vh;
+                        max-height: 70vh;
+                    }
+
+                    // animation: imgFadeIn 0.2s ease-in 1;
+                }
+                #quickView_imgCarousel {
+                    display: flex;
+                    flex: 1;
+                    width: fit-content;
+                    margin: 0.75em 0;
+                    justify-content: center;
+                    max-height: 100%;
+                    overflow: auto;
+                    padding: 0.15em 0;
+
+                    @media screen and (min-width: $mediumScreen) {
+                        flex-direction: column;
+                        align-items: center;
+                        height: 100%;
+                        max-height: 45vh;
+                        width: fit-content;
+                        flex: unset;
+                        overflow-x: hidden;
+                    }
+
+                    .imgCarousel_img {
+                        cursor: pointer;
+                        max-height: 100%;
+                        border-radius: 4px;
+                        margin: 0 1em;
+                        padding: 0.25em;
+                        border: solid 1px transparent;
+                        transition: border 0.15s;
+                        height: 5em;
+                        @media screen and (min-width: $smallScreen) {
+                            max-height: 6em;
+                        }
+                        @media screen and (min-width: $mediumScreen) {
+                            max-height: unset;
+                            margin-bottom: 0.5em;
+                        }
+                        @media screen and (min-width: $largeScreen) {
+                            max-width: unset;
+                        }
+
+                        &.selected {
+                            border: solid 1px rgba(black, 0.25);
+                        }
+                    }
+                }
+            }
+            #quickView_infoSection {
+                display: flex;
+                justify-content: space-evenly;
+                flex-direction: column;
+                align-items: center;
+                flex: 1;
+                background: radial-gradient(rgba(255, 255, 255, 0.5), transparent);
+                @media screen and (min-width: $smallScreen) {
+                    //med
+                }
+                @media screen and (min-width: $mediumScreen) {
+                    // background-color: green;
+                    font-size: 0.9em;
+                }
+
+                @media screen and (min-width: $largeScreen) {
+                    font-size: 1em;
+                }
+                @media screen and (min-width: $madLargeScreen) {
+                    //big
+                }
+
+                #productInfo {
+                    display: flex;
+                    flex-direction: column;
+                }
+                #quickView_productDesc {
+                    display: flex;
+                    text-align: center;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    padding: 1em;
+                    color: $darkText;
+                    font-family: $sansFont;
+                    font-size: 1.15em;
+                    font-weight: 600;
+                    @media screen and (min-width: $smallScreen) {
+                        //med
+                        // background-color: orange;
+                        flex: 1;
+                    }
+
+                    @media screen and (min-width: $mediumScreen) {
+                        // background-color: pink;
+
+                        justify-content: center;
+                        flex: unset;
+                    }
+                    @media screen and (min-width: $madLargeScreen) {
+                        //big
+                        // background-color: rgb(172, 172, 255);
+                    }
+                    ul {
+                        list-style: disc;
+                        padding-left: 0;
+                        margin: 0;
+
+                        li {
+                            padding-left: 1em;
+                            display: block;
+                        }
+                    }
+                }
+                #upperHolder {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    border-top: solid 1px black;
+                    border-bottom: solid 1px black;
+                    padding: 0.65em 1em 1em 1em;
+                    align-items: center;
+                    min-width: 75%;
+                    #quickView_productName,
+                    #productPrice {
+                        font-family: $serifFont;
+                        text-align: center;
+                    }
+                    #quickView_productName {
+                        font-size: 1.5em;
+                        @media screen and (min-width: $mediumScreen) {
+                            font-size: 1.75em;
+                        }
+                    }
+                    #productPrice {
+                        font-size: 1.65em;
+                        font-family: $headerCompFont;
+                        letter-spacing: 0.1em;
+                        font-weight: 600;
+                        color: $mauve;
+                        margin: 0.35em 0;
+                        &::first-letter {
+                            font-family: $serifFont;
+                            font-size: 1.05em;
+                        }
+                    }
+                }
+            }
+        }
+        #quickViewActionableItems {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+            width: 100%;
+            width: 15em;
+            text-align: center;
+            button {
+                width: 100%;
+                height: 100%;
+            }
+
+            .quantityUpdater {
+                .quantityButtonHolder {
+                    height: 3.5em;
+                    .quantButton {
+                    }
+                }
+                .quantityUpdateButton {
+                    margin-top: 0.75em;
+                    height: 1.625em;
+                }
+            }
+
+            #mobileReturnButton {
+                background-color: $mauve;
+                border: 0;
+                color: $lightText;
+                font-weight: 400;
+                font-family: $headerCompFont;
+                font-size: 1.5em;
+                padding: 0;
+                margin: 0.5em 0;
+                border-radius: 3px;
+                cursor: pointer;
+                width: 5em;
+                box-sizing: border-box;
+                font-weight: 600;
+                font-size: 1.5em;
+                height: 1.65em;
+                &:hover {
+                    background-color: darken($color: $mauve, $amount: 7);
+                }
+                &:hover {
+                    background-color: darken($color: $beige, $amount: 5);
+                }
+            }
+            .optionHolder {
+                display: flex;
+                flex-direction: row;
+                flex: 1;
+                height: 2em;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                .dropDownLabel {
+                    font-family: $headerCompFont;
+                    font-size: 1.5em;
+                    letter-spacing: 0.05em;
+                    @media screen and (min-width: $smallScreen) {
+                        //med^^
+                        font-size: 1.55em;
+                    }
+                }
+                .Dropdown-root {
+                    margin-left: 0.5em;
+                    .Dropdown-control {
+                        cursor: pointer;
+                        width: 9.5em;
+                        height: 2.5em;
+                        border-radius: 3px;
+                        padding: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        .Dropdown-placeholder {
+                            font-size: 1.5em;
+                            font-family: $headerCompFont;
+                            letter-spacing: 0.05em;
+                        }
+                        .Dropdown-arrow {
+                            right: 0.7em;
+                            top: 1.1em;
+                            width: 0;
+                        }
+                    }
+
+                    .Dropdown-menu {
+                        .Dropdown-option {
+                            background-color: rgba($mauve, 0);
+                            &:hover {
+                                background-color: rgba($mauve, 0.15);
+                            }
+                            &.is-selected {
+                                background-color: rgba($mauve, 0.65);
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes imgFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-0.5em);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

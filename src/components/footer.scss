@@ -4,9 +4,11 @@
     width: 100vw;
     max-width: 100%;
     height: 2.5em;
-    background-color: $brown;
+    background-color: $lightPink;
     display: flex;
     padding: 0 2em;
+    justify-content: center;
+    box-sizing: border-box;
     align-items: center;
     color: white;
     font-size: 1.5em;
@@ -32,6 +34,9 @@
             justify-content: space-around;
         }
         .linkHolder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             &:first-child {
                 margin-right: 2em;
             }
@@ -43,8 +48,50 @@
             }
             .footerLink {
                 color: white;
+                font-weight: 500;
                 text-decoration: none;
                 text-align: center;
+            }
+        }
+    }
+    .formHolder {
+        display: none;
+        @media screen and (min-width: $largeScreen) {
+            display: block;
+        }
+        #joinMailingList {
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            > * {
+                display: flex;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+            }
+            #mc_embed_signup {
+                #mc_embed_signup_scroll {
+                    flex-direction: row;
+                    label {
+                        display: none;
+                        font-size: 1em;
+                        height: 2em;
+                    }
+                    #formSeperator {
+                        display: flex;
+                        flex-direction: row;
+                        input {
+                            font-size: 0.85em;
+                            margin: 0 1.1em 0 0;
+                            &#mce-EMAIL {
+                                font-family: $sansFont;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -72,8 +119,8 @@
                 }
             }
             @media screen and (max-width: $smallScreen) {
-                height:auto;
-                width:auto;
+                height: auto;
+                width: auto;
             }
             img {
                 cursor: pointer;

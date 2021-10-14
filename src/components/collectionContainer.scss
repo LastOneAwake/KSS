@@ -1,0 +1,195 @@
+@import "/src/components/vars.scss";
+
+.collectionContainer {
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 1px white;
+    padding: 0;
+    .collectionHeader {
+        padding-left: 0.25em;
+        text-transform: capitalize;
+        color: $darkText;
+        font-size: 2.8em;
+        padding-top: 0.25em;
+        text-transform: uppercase;
+        font-family: $headerCompFont;
+        letter-spacing: 0.1em;
+        width: fit-content;
+        padding-right: 0.5em;
+        border-bottom: solid 1px black;
+
+        @media screen and (min-width: $smallScreen) {
+            //med
+            font-size: 4em;
+        }
+    }
+    .productsHolder {
+        display: flex;
+        flex: 1;
+        width: 100vw;
+        max-width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        .product {
+            margin: 1em 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            //mobile first
+            width: 90vw;
+            background-color: rgba(black, 0.35);
+
+            &.noVariants {
+                justify-content: space-between;
+            }
+
+            @media screen and (min-width: $smallScreen) {
+                width: 30vw;
+            }
+            @media screen and (min-width: $madLargeScreen) {
+                width: 20vw;
+            }
+
+            .productImg {
+                cursor: pointer;
+                margin-bottom: 0.5em;
+                // @media screen and(min-width: $smallScreen) {
+                //     transition: transform .3s;
+                //     &:hover {
+                //         transform: translatey(-.5em);
+                //     }
+                // }
+            }
+            .productTitle,
+            .productPrice {
+                font-family: $sansFont;
+                color: $lightText;
+                text-align: center;
+            }
+            .productTitle {
+                min-height: 2em;
+                font-weight: 400;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.55em;
+                letter-spacing: 0.15em;
+                font-weight: 500;
+                font-family: $headerCompFont;
+
+                padding: 0 0.5em;
+                @media screen and (min-width: $smallScreen) {
+                    font-size: 1.85em;
+                }
+            }
+            .productPrice {
+                font-size: 1.5em;
+                @media screen and (min-width: $smallScreen) {
+                    font-size: 1.75em;
+                }
+                font-family: $sansFont;
+                padding: 0.25em 0;
+                color: $wheat;
+                font-weight: 500;
+            }
+            .buttonsHolder {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+                width: fit-content;
+
+                @media screen and (min-width: $smallScreen) {
+                    //med
+                    // background-color: orange;
+                }
+                @media screen and (min-width: $mediumScreen) {
+                    // background-color: green;
+                    width: 80%;
+                    .optionHolder {
+                        width: 85% !important;
+                        padding: 0 !important;
+                    }
+                }
+                @media screen and (min-width: $largeScreen) {
+                    // background-color: pink;
+                    width: 15em;
+                }
+                @media screen and (min-width: $madLargeScreen) {
+                    //big
+                }
+
+                .optionHolder {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    /* padding: 0.5em; */
+                    margin: 0.5em 0 0.5em 0;
+                    padding: 0 0.5em;
+                    width: 100%;
+                    box-sizing: border-box;
+                    .shopDropDownLabel {
+                        font-size: 1.45em;
+                        font-family: $serifFont;
+                        color: black;
+                    }
+                    .Dropdown-root {
+                        cursor: pointer;
+                        .Dropdown-control {
+                            border-radius: 5px;
+                            font-size: 1.25em;
+                            border: 0;
+                            padding: 8px 29px 8px 17px;
+                            .Dropdown-arrow {
+                                right: 0.5em;
+                                top: 0.9em;
+                                width: 0;
+                            }
+                        }
+                    }
+                }
+                .addToCartHolder {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    .quantityUpdater {
+                        flex-direction: row;
+
+                        background-color: transparent;
+                    }
+                    .addToCart {
+                        width: 80%;
+                    }
+                    .quantityUpdateButton {
+                        height: 2em;
+                    }
+                }
+                button {
+                    &:hover {
+                        background-color: $downShadegreen;
+                    }
+                    &.viewProduct {
+                        background-color: $mauve;
+                        border: 0;
+                        color: $lightText;
+                        font-weight: 400;
+                        font-family: $headerCompFont;
+                        font-size: 1.5em;
+                        padding: 0.2em 0.25em;
+                        margin-bottom: 0.5em;
+                        border-radius: 3px;
+                        cursor: pointer;
+                        width: 5em;
+                        box-sizing: border-box;
+                        font-weight: 600;
+
+                        &:hover {
+                            background-color: darken($color: $mauve, $amount: 7);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

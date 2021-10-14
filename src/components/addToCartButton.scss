@@ -1,0 +1,46 @@
+@import "/src/components/vars.scss";
+
+.buttonHolder {
+    width: 100%;
+    height: 2.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    input.quantityCounter {
+        width: 1em;
+        padding: 0.1em 0.25em;
+        text-align: center;
+        font-family: $sansFont;
+        font-size: 1.5em;
+        border: 0;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border: solid 1px white;
+        border-right: 0;
+    }
+    .addToCartButton {
+        height: 100%;
+        width: 60%;
+        background-color: $successGreen;
+        border: 0;
+        color: $lightText;
+        font-weight: 400;
+        font-family: $sansFont;
+        font-size: 0.9em;
+        @media screen and (min-width: $smallScreen) {
+            font-size: 1.35em;
+        }
+        border-radius: 5px;
+        border: solid 1px white;
+        border-left: 0;
+        box-sizing: border-box;
+        cursor: pointer;
+        transition: background-color 0.25s;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        &:hover {
+            background-color: $downShadegreen;
+        }
+    }
+}

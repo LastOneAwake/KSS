@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Mailchimp() {
+export default function Mailchimp({ placeholderValue }) {
     const [emailValue, updateEmailValue] = useState('');
     const [fakeboiValue, setfakeboiValue] = useState('');
 
@@ -19,13 +19,14 @@ export default function Mailchimp() {
                 <div id="mc_embed_signup_scroll">
                     <label htmlFor="mce-EMAIL">Join Our Mailing List</label>
                     <div id='formSeperator'>
-                        <input type="email"
+                        <input
+                            type="email"
                             value={emailValue}
                             onChange={e => updateEmailValue(e.target.value)}
                             name="EMAIL"
                             className="email"
                             id="mce-EMAIL"
-                            placeholder="Drop Us Your Email!"
+                            placeholder={placeholderValue}
                             required={true}
 
                         />

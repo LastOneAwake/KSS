@@ -1,14 +1,15 @@
 @import "./vars.scss";
 #contact {
-    background-color: $dargkGreen;
+    background: linear-gradient(45deg, #86373f, #742f36, #42171b);
     display: flex;
     flex: 1;
     flex-direction: row;
-
+    height: 100%;
     &.inactive {
         display: none;
     }
     padding: 0 0 0 3em;
+    box-sizing: border-box;
     @media screen and (max-width: $smallScreen) {
         padding: 0;
     }
@@ -23,17 +24,19 @@
         flex: 1.5;
         flex-direction: column;
         justify-content: center;
-        padding-top: 5em;
-        @media screen and (max-width: $smallScreen) {
-            padding: 2em;
+
+        @media screen and (min-width: $smallScreen) {
         }
         #contactHeader {
-            font-size: 5em;
-            font-family: $serifFont;
-            color: $gold;
-            font-weight: 700;
-            padding: 0.25em;
+            font-size: 4.5em;
+            font-family: $headerCompFont;
+            letter-spacing: 0.1em;
+            color: $lightBG;
+            font-weight: 500;
             display: flex;
+            padding-left: 0.2em;
+            padding-top: 1em;
+            box-sizing: border-box;
             @media screen and (max-width: $mediumScreen) {
                 justify-content: center;
                 text-align: center;
@@ -41,30 +44,38 @@
             }
         }
         #contactInfo {
-            padding: 1em;
+            padding: 0 1em 1em 1em;
+
             flex: unset;
-            align-items: flex-start;
-            @media screen and (max-width: $mediumScreen) {
-                align-items: center;
+            align-items: center;
+            @media screen and (min-width: $mediumScreen) {
+                //med
+                align-items: flex-start;
             }
 
             label {
-                font-family: $serifFont;
-                color: $lightGold;
-                font-weight: 700;
+                font-family: $headerCompFont;
+                letter-spacing: 0.1em;
+                color: $lightBG;
+                font-weight: 500;
+
+                font-weight: 500;
                 text-shadow: none;
-                font-size: 2.25em;
+                font-size: 2.5em;
             }
             #formSeperator {
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
+                @media screen and (min-width: $mediumScreen) {
+                    //med
+                    flex-direction: row;
+                }
             }
             #mce-EMAIL {
                 margin-right: 1em;
-                border-radius: 5px;
-                @media screen and (max-width: $smallScreen) {
-                    font-size: 1em;
-                }
+                border-radius: 2.5px;
+                font-family: $sansFont;
+                padding: 0.25em 0.5em;
             }
             #mc_embed_signup_scroll {
                 align-items: flex-start;
@@ -73,7 +84,7 @@
                 }
             }
             #joinMailingList {
-                margin-bottom: 4em;
+                margin-bottom: 2em;
 
                 display: flex;
                 justify-content: center;
@@ -92,9 +103,9 @@
                     align-items: center;
                 }
                 #mailLink {
-                    font-family: $serifFont;
+                    font-family: $sansFont;
                     color: $gold;
-                    font-weight: 700;
+                    font-weight: 400;
                     display: flex;
                     justify-content: center;
                     color: white;
@@ -110,10 +121,11 @@
             }
             #contactSocialMedia {
                 #contactSMHeader {
-                    font-size: 2.25em;
-                    font-family: $serifFont;
-                    color: $lightGold;
-                    font-weight: 700;
+                    font-size: 3.25em;
+                    font-family: $headerCompFont;
+                    letter-spacing: 0.1em;
+                    color: $lightBG;
+                    font-weight: 500;
                     @media screen and (max-width: $mediumScreen) {
                         align-items: center;
                         text-align: center;
@@ -124,8 +136,9 @@
                     display: flex;
                     flex-direction: row;
                     justify-content: center;
-                    @media screen and (max-width: $mediumScreen) {
-                        align-items: center;
+                    align-items: center;
+                    @media screen and (min-width: $smallScreen) {
+                        justify-content: flex-start;
                     }
                     .smIconHolder {
                         cursor: pointer;
@@ -167,22 +180,29 @@
         }
     }
     #contactImg {
-        @media screen and (max-width: $mediumScreen) {
-            display: none;
-        }
         display: flex;
         flex: 1;
-        background-image: url("../assets/mirrorGirlSized.jpg");
+        background-image: url("../assets/contactSide.jpg");
         background-size: cover;
         display: flex;
         justify-content: center;
         align-items: center;
-        background-position: right;
+        background-position: top;
+
+        border-left: solid 6px $lightText;
+        border-bottom: solid 6px $lightText;
+        box-shadow: 0px 0px 10px rgba(rgb(55, 12, 12), 0.95);
+
+        @media screen and (max-width: $mediumScreen) {
+            display: none;
+        }
+
         #ghostShape {
-            height: 80%;
-            width: 80%;
-            border: solid 15px white;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            height: 90%;
+            width: 85%;
+            border: solid 6px $lightText;
+            background-color: transparent;
+            box-shadow: 0px 0px 15px rgba(rgb(55, 12, 12), 0.95);
         }
     }
 }
