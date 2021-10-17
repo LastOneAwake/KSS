@@ -24,8 +24,41 @@ function getBreakpoints() {
         width: vw
     }
 }
-function App() {
-    const [currentView, setCurrentView] = useState('Home');
+function App({ initialSectionObject }) {
+    const paramSec = initialSectionObject?.section;
+    const urlPath = window.location.pathname;
+    let voidParam = false;
+    let initSec;
+    let initCollection;
+
+    switch (urlPath) {
+        case '/shop':
+            initSec = 'Shop';
+            voidParam = true;
+            break;
+        case '/contact':
+            initSec = 'Contact';
+            voidParam = true;
+            break;
+        case '/faq':
+            initSec = 'FAQs';
+            voidParam = true;
+            break;
+        case '/home':
+            initSec = 'Home';
+        default:
+
+    }
+    if (!voidParam) {
+        initSec = paramSec ? paramSec[0].toUpperCase() + paramSec.substring(1) : 'Home';
+        initCollection = initialSectionObject?.collection;
+        initCollection = initCollection ? initCollection[0].toUpperCase() + initCollection.substring(1) : null;
+
+        if (initCollection) {
+            initSec = 'Shop';
+        }
+    }
+    const [currentView, setCurrentView] = useState(initSec);
     const shopref = useRef(null);
     const [breakpoints, setBreakpoints] = useState(getBreakpoints());
     const [selectedProductObj, setSelectedProductObj] = useState(null);
@@ -38,6 +71,10 @@ function App() {
         window.addEventListener('onbeforeunload', () => {
             setSelectedProductObj(null);
         })
+        window.onpopstate = () => {
+            setSelectedProductObj(null);
+
+        };
         return () => {
             window.removeEventListener('resize', () => {
                 setBreakpoints(getBreakpoints());
@@ -46,6 +83,7 @@ function App() {
                 setSelectedProductObj(null);
 
             })
+            window.onpopstate = null;
         }
     }, []);
 
@@ -79,6 +117,7 @@ function App() {
             </div>);
     }
     console.log('selectedProductObj', selectedProductObj);
+    window.history.pushState({}, '', `?section=home`);
 
     return (
         <ShopProvider>
@@ -111,6 +150,7 @@ function App() {
                         currentView={currentView}
                         selectedProductObj={selectedProductObj}
                         setSelectedProductObj={setSelectedProductObj}
+                        breakpoints={breakpoints}
                     />
                 }
                 {currentView === 'Contact' &&

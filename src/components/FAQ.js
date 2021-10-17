@@ -4,6 +4,7 @@ import terms from '../assets/KSS_terms.pdf';
 import privacy from '../assets/KSS_privacy.pdf';
 
 export default function FAQ({ currentView, setCurrentView }) {
+    window.history.pushState({}, '', `?section=faq`);
 
     let sectionClasses = 'largeSection';
     if (currentView !== 'FAQs') {

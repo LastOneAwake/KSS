@@ -8,6 +8,7 @@ import tikTokIcon from '../assets/smIcons/tikTok.png';
 import pinterestIcon from '../assets/smIcons/pinterest.png';
 
 export default function About({ currentView }) {
+    window.history.pushState({}, '', `?section=contact`);
 
     let sectionClasses = 'largeSection';
     if (currentView !== 'Contact') {

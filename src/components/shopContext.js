@@ -16,6 +16,7 @@ class ShopProvider extends Component {
         collections: [],
         collectionNames: [],
         collectionsByName: {},
+        collectionsAvailable: false,
         isCartOpen: false,
     };
 
@@ -93,7 +94,7 @@ class ShopProvider extends Component {
     fetchAllProducts = async () => {
         const products = await client.product.fetchAll();
         this.setState({ products: products });
-        console.log((products));
+        console.log(('products', products));
     };
 
     fetchAllCollections = async () => {
@@ -105,7 +106,8 @@ class ShopProvider extends Component {
         this.setState({
             collections: collections,
             collectionNames: collectionNames,
-            collectionsByName: collectionsByName
+            collectionsByName: collectionsByName,
+            collectionsAvailable: true
         });
     }
 

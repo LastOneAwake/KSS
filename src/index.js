@@ -6,7 +6,12 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App
+      initialSectionObject={{
+        section: new URLSearchParams(window.location.search).get('section'),
+        collection: new URLSearchParams(window.location.search).get('collection'),
+      }}
+    />
   </React.StrictMode>,
   document.getElementById('root')
 );

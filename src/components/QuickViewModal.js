@@ -27,6 +27,8 @@ function enableScroll() {
 export default function QuickViewModal({ productObj, dismissDetailWindow }) {
     const { title, variants, id, options, images, descriptionHtml } = productObj;
 
+    window.history.pushState({}, '', `?mid=${productObj.id}`);
+
 
 
     // const titleBasedObj = {}

@@ -66,6 +66,28 @@ export default function Cart() {
                             <div />
                         </div>
                     </div>
+
+
+                    <div
+                        id='cartFooter'
+                        className='empty'
+                    >
+                        <div id='cartButtonHolder'>
+                            <button
+                                id="cartBackButton"
+                                className='empty'
+                                onClick={() => {
+                                    closeCart();
+                                }}
+                            >
+                                <span href="#" className="arrow left" />
+                            </button>
+                        </div>
+
+
+
+
+                    </div>
                 </div>
             </div >
         )
