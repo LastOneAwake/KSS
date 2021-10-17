@@ -46,7 +46,10 @@ function App({ initialSectionObject }) {
             break;
         case '/home':
             initSec = 'Home';
+            break;
         default:
+            initSec = 'Home';
+
 
     }
     if (!voidParam) {
