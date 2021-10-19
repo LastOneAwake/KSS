@@ -17,17 +17,36 @@ export default function ShopSection({ breakpoints, setSelectedProductObj }) {
   //used to scroll to shop element
   const shopRef = useRef(null);
   const [currSec, setCurrSec] = useState(collections[0]);
+  const [displayBttButton, setDisplayBttButton] = useState(false);
 
   useEffect(() => {
     setCurrSec(collections[0]);
   }, [collections])
+
+  useEffect(() => {
+    window.addEventListener('scroll', (e) => {
+      if (window.scrollY < 50) {
+        setDisplayBttButton(false);
+      } else {
+        setDisplayBttButton(true)
+      }
+    })
+    return (
+      window.removeEventListener('scroll', (e) => {
+        if (window.scrollY < 50) {
+          setDisplayBttButton(false);
+        } else {
+          setDisplayBttButton(true)
+        }
+      })
+    )
+  }, [])
 
   if (collectionsAvailable) {
     let secToDisplay = currSec;
     if (!currSec) {
       secToDisplay = collections[0];
     }
-    console.log('secToDisplay', secToDisplay);
 
     return (
       <div
@@ -53,8 +72,7 @@ export default function ShopSection({ breakpoints, setSelectedProductObj }) {
         </div>
         <div
           id='menuButton'
-          className='floatingButton'
-
+          className={'floatingButton' + (displayBttButton ? '' : ' atTop')}
           onClick={() => {
             window.scrollTo({
               top: 0,

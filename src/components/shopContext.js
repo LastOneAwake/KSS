@@ -57,7 +57,7 @@ class ShopProvider extends Component {
                 quantity: parseInt(quantity, 10),
             },
         ];
-        console.log(lineItemsToAdd, this.state.checkout.id);
+
         const checkout = await client.checkout.addLineItems(
             this.state.checkout.id,
             lineItemsToAdd
@@ -86,15 +86,12 @@ class ShopProvider extends Component {
             .then((checkout) => {
                 // Do something with the updated checkout
                 this.setState({ checkout: checkout });
-
-                console.log(checkout.lineItems); // Checkout with line item 'Z2lkOi8vc2hvcGlmeS9Qcm9kdWN0Lzc4NTc5ODkzODQ=' removed
             });
     };
 
     fetchAllProducts = async () => {
         const products = await client.product.fetchAll();
         this.setState({ products: products });
-        console.log(('products', products));
     };
 
     fetchAllCollections = async () => {
@@ -114,8 +111,6 @@ class ShopProvider extends Component {
     fetchProductWithId = async (id) => {
         const product = await client.product.fetch(id);
         this.setState({ product: product });
-        console.log(JSON.stringify(product));
-
         return product;
     };
 

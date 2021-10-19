@@ -50,7 +50,6 @@ function App({ initialSectionObject }) {
         default:
             initSec = 'Home';
 
-
     }
     if (!voidParam) {
         initSec = paramSec ? paramSec[0].toUpperCase() + paramSec.substring(1) : 'Home';

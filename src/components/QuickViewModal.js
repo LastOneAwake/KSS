@@ -58,15 +58,12 @@ export default function QuickViewModal({ productObj, dismissDetailWindow }) {
     const [quantity, setQuantity] = useState(1);
     const defaultOption = dropdownOpts[selectedVariantIndex];
 
-
     useEffect(() => {
         disableScroll();
         return () => {
             enableScroll();
         }
     });
-
-    console.log(selectedImage);
 
     return (
         <div
@@ -112,7 +109,6 @@ export default function QuickViewModal({ productObj, dismissDetailWindow }) {
                                         onClick={() => {
                                             setSelectedImage(imgObj);
                                             setSelectedImageIndex(i);
-                                            console.log(imgObj);
                                         }}
 
                                     />
@@ -143,7 +139,6 @@ export default function QuickViewModal({ productObj, dismissDetailWindow }) {
                                                     const { obj } = dropdownOpts[value];
                                                     setCurrentVariant(obj);
                                                     setSelectedVariantIndex(value);
-                                                    console.log(obj);
                                                 }}
                                             />
                                         </div>

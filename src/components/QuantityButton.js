@@ -65,7 +65,6 @@ export default function QuantityButton({ quantity, updateQuantity, buttonVal, se
                 className='quantityUpdateButton'
                 onClick={() => {
                     updateQuantity(quant);
-                    console.log(`adding ${quant} of  ${variantID}`);
                     addItemToCheckout(variantID, quant);
                 }}
             >
