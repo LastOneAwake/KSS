@@ -326,7 +326,7 @@
             #proceedToCheckout {
                 border-radius: 4px;
                 padding: 0.1em 0.25em;
-                background-color: $successGreen;
+                background-color: $downShadegreen;
                 color: white;
                 border: 0;
                 outline: 0;
@@ -339,23 +339,16 @@
                 @media screen and(min-width: $mediumScreen) {
                     display: none;
                 }
-                &.empty {
-                    display: flex;
-                    height: 2em;
-                    width: 2em;
-                    cursor: pointer;
-                }
 
                 border-radius: 4px;
-                padding: 0.1em 0.25em;
+                padding: 0.1em .35em;
                 background-color: $successGreen;
                 color: white;
                 border: 0;
                 outline: 0;
-                font-size: 2.65em;
+                font-size: 2.5em;
                 font-family: $headerCompFont;
                 font-weight: 100;
-                width: 4em;
 
                 display: flex;
                 justify-content: center;
@@ -364,7 +357,6 @@
 
                 background-color: $mauve;
                 position: relative;
-                padding-left: 0.3em;
 
                 .arrow {
                     position: absolute;
