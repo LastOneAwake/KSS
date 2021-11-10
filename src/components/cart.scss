@@ -325,7 +325,7 @@
             width: 100%;
             #proceedToCheckout {
                 border-radius: 4px;
-                padding: 0.1em 0.25em;
+                padding: 0.1em 1.5em;
                 background-color: $downShadegreen;
                 color: white;
                 border: 0;
@@ -333,7 +333,6 @@
                 font-size: 2.65em;
                 font-family: $headerCompFont;
                 font-weight: 100;
-                width: 7em;
             }
             #cartBackButton {
                 @media screen and(min-width: $mediumScreen) {
