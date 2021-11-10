@@ -117,7 +117,7 @@ export default function Cart() {
                 </div>
                 <div id='lineItemHolder'>
                     {lineItems && lineItems.reverse().map(itemObj => {
-                        console.log(itemObj.title, itemObj.variant)
+
                         const { title, quantity, variant } = itemObj;
 
                         if (!variant) {
@@ -219,20 +219,20 @@ export default function Cart() {
                     </div>
                     <div id='cartButtonHolder'>
                         <button
+                            id="cartBackButton"
+                            onClick={() => {
+                                closeCart();
+                            }}
+                        >
+                            RETURN
+                        </button>
+                        <button
                             id="proceedToCheckout"
                             onClick={() => {
                                 window.open(webUrl, '_blank');
                             }}
                         >
                             CHECKOUT
-                        </button>
-                        <button
-                            id="cartBackButton"
-                            onClick={() => {
-                                closeCart();
-                            }}
-                        >
-                            <span href="#" className="arrow left" />
                         </button>
                     </div>
 
