@@ -7,8 +7,6 @@ import 'react-dropdown/style.css';
 export default function ProductContainer({ product, sectionName, setSelectedProductObj, openCart }) {
     //selected variant and quantity
     const { variants, id, options } = product;
-    console.log(product);
-    console.log('variants', variants);
     const dropdownOpts = variants.map((variant, i) => {
         const classes = variant.available ? 'inStock' : 'outOfStock';
         const dropDownObj = {
@@ -80,7 +78,6 @@ export default function ProductContainer({ product, sectionName, setSelectedProd
                                     const { obj } = dropdownOpts[value];
                                     setCurrentVariant(obj);
                                     setSelectedVariantIndex(value);
-                                    console.log(obj);
                                 }}
                             />
                         </div>

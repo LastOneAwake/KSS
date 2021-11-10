@@ -118,7 +118,7 @@ function App({ initialSectionObject }) {
                 })}
             </div>);
     }
-    console.log('selectedProductObj', selectedProductObj);
+
     window.history.pushState({}, '', `?section=home`);
 
     return (

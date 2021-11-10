@@ -75,12 +75,11 @@ export default function Cart() {
                         <div id='cartButtonHolder'>
                             <button
                                 id="cartBackButton"
-                                className='empty'
                                 onClick={() => {
                                     closeCart();
                                 }}
                             >
-                                <span href="#" className="arrow left" />
+                                RETURN
                             </button>
                         </div>
 
