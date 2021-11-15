@@ -228,7 +228,7 @@ export default function Cart() {
                         <button
                             id="proceedToCheckout"
                             onClick={() => {
-                                window.open(webUrl, '_blank');
+                                window.open(webUrl, '_self');
                             }}
                         >
                             CHECKOUT
