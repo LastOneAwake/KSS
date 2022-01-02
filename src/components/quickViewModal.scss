@@ -17,7 +17,6 @@
         background: url("../assets/detailsWindowBG.jpg");
         background-size: cover;
         //mobile first
-        background-color: $lightText;
         z-index: 999999;
         border-radius: 5px;
         position: relative;
@@ -25,26 +24,28 @@
         width: 98vw;
         overflow: auto;
         padding: 1em 0;
+        // background-color: $lightText;
+
         @media screen and (min-width: $smallScreen) {
             //med
             width: 75vw;
-            background-color: orange;
+            // background-color: orange;
         }
         @media screen and (min-width: $mediumScreen) {
-            background-color: green;
+            // background-color: green;
             width: 92.5vw;
             max-height: 75vh;
         }
         @media screen and (min-width: $largeScreen) {
             width: 75vw;
             max-height: 80vh;
-            background-color: pink;
+            // background-color: pink;
         }
         @media screen and (min-width: $madLargeScreen) {
             //big
             width: 65vw;
             max-height: unset;
-            background-color: rgb(172, 172, 255);
+            // background-color: rgb(172, 172, 255);
         }
 
         #closeButton {
